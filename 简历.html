@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>罗凌成 · 空间设计师 / 工程管理技术人员 — 简历</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Inter:wght@400;600;800&display=swap');
+:root {
+    --primary: #0f0a2a;
+    --accent: #6366f1;
+    --accent-light: #818cf8;
+    --bg: #eef0f4;
+    --card: #ffffff;
+    --text: #1a1a2e;
+    --text-secondary: #555b6e;
+    --text-muted: #8a90a3;
+    --line: #e8eaf0;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+    font-family:'Inter','Noto Sans SC',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    padding:2rem 1rem;
+}
+.page {
+    max-width:820px;
+    margin:0 auto;
+    background:var(--card);
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 20px 60px rgba(15,10,42,0.12);
+}
+
+/* === Header === */
+.resume-header {
+    background:linear-gradient(135deg,#f0f3ff 0%,#e4e9ff 55%,#d5ddff 130%);
+    color:var(--primary);
+    padding:2.4rem 2.8rem 2.2rem;
+    position:relative;
+    overflow:hidden;
+}
+.resume-header::before {
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(ellipse 70% 90% at 85% 0%,rgba(99,102,241,0.16) 0%,transparent 60%);
+}
+.resume-header .inner { position:relative; display:flex; justify-content:space-between; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+.avatar { width:88px; height:88px; border-radius:50%; object-fit:cover; border:3px solid #fff; box-shadow:0 8px 24px rgba(99,102,241,0.3); flex-shrink:0; }
+.name-line { display:flex; align-items:baseline; gap:1rem; }
+.name-line h1 { font-size:2.1rem; font-weight:900; letter-spacing:2px; color:var(--primary); }
+.name-line .en { font-size:0.75rem; color:var(--text-muted); font-weight:600; letter-spacing:3px; text-transform:uppercase; }
+.position-tag {
+    display:inline-block; margin-top:0.7rem;
+    background:rgba(99,102,241,0.12); border:1px solid rgba(99,102,241,0.35);
+    color:var(--accent); padding:0.35rem 1.1rem; border-radius:50px;
+    font-size:0.85rem; font-weight:600;
+}
+.contact-line { text-align:right; font-size:0.82rem; color:var(--text-secondary); line-height:1.9; }
+.contact-line span { white-space:nowrap; }
+.contact-line b { color:var(--primary); font-weight:600; }
+
+/* === Body === */
+.resume-body { display:grid; grid-template-columns:300px 1fr; }
+.side { padding:2rem 1.8rem; background:#faf9fd; border-right:1px solid var(--line); }
+.main { padding:2rem 2.2rem; }
+
+.block { margin-bottom:1.8rem; }
+.block-title {
+    font-size:0.78rem; font-weight:800; letter-spacing:2.5px;
+    color:var(--accent); text-transform:uppercase;
+    display:flex; align-items:center; gap:0.6rem;
+    margin-bottom:1rem;
+}
+.block-title::after { content:''; flex:1; height:1px; background:var(--line); }
+
+/* Profile */
+.profile p { font-size:0.88rem; color:var(--text-secondary); }
+.profile .hl {
+    background:var(--accent-glow,#f0efff); color:var(--accent);
+    padding:0.15rem 0.4rem; border-radius:4px; font-weight:600;
+}
+
+/* Skills */
+.skill-item { margin-bottom:1.1rem; }
+.skill-item .skill-name { font-size:0.88rem; font-weight:700; color:var(--primary); margin-bottom:0.35rem; display:flex; justify-content:space-between; }
+.skill-item .bar { height:6px; background:#e9e6f7; border-radius:3px; overflow:hidden; }
+.skill-item .bar i { display:block; height:100%; background:linear-gradient(90deg,var(--accent),var(--accent-light)); border-radius:3px; }
+.skill-item .skill-desc { font-size:0.78rem; color:var(--text-muted); margin-top:0.35rem; line-height:1.5; }
+
+/* Key numbers */
+.stats-mini { display:grid; grid-template-columns:1fr 1fr; gap:0.6rem; }
+.stat-mini { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:0.7rem 0.5rem; text-align:center; }
+.stat-mini .num { font-size:1.25rem; font-weight:900; color:var(--primary); }
+.stat-mini .num em { font-style:normal; color:var(--accent); }
+.stat-mini .desc { font-size:0.68rem; color:var(--text-muted); margin-top:0.15rem; }
+
+/* Timeline */
+.exp-item { position:relative; padding-left:1.3rem; padding-bottom:1.6rem; }
+.exp-item::before { content:''; position:absolute; left:0; top:6px; width:9px; height:9px; background:var(--accent); border-radius:50%; box-shadow:0 0 0 3px #eceafe; }
+.exp-item::after { content:''; position:absolute; left:4px; top:20px; bottom:0; width:1.5px; background:var(--line); }
+.exp-item:last-child { padding-bottom:0; }
+.exp-item:last-child::after { display:none; }
+.exp-company { display:flex; justify-content:space-between; align-items:baseline; gap:0.8rem; flex-wrap:wrap; }
+.exp-company h3 { font-size:1rem; font-weight:800; color:var(--primary); }
+.exp-company .date { font-size:0.75rem; color:var(--accent); font-weight:700; background:#f0efff; padding:0.2rem 0.7rem; border-radius:6px; white-space:nowrap; }
+.exp-role { font-size:0.8rem; color:var(--text-muted); margin:0.2rem 0 0.6rem; }
+.exp-item ul { list-style:none; }
+.exp-item li { font-size:0.85rem; color:var(--text-secondary); padding:0.25rem 0 0.25rem 1.1rem; position:relative; }
+.exp-item li::before { content:'▸'; position:absolute; left:0; color:var(--accent); font-weight:700; }
+.exp-item li b { color:var(--text); font-weight:700; }
+.exp-year { display:inline-block; font-size:0.72rem; font-weight:800; color:var(--accent); background:#f0efff; border-radius:5px; padding:0.15rem 0.55rem; margin:0.5rem 0 0.4rem; }
+
+/* Projects */
+.proj-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.7rem; }
+.proj-card { border:1px solid var(--line); border-radius:10px; padding:0.8rem 1rem; background:#fbfbfe; transition:all .25s ease; }
+.proj-card:hover { border-color:var(--accent); transform:translateY(-2px); box-shadow:0 6px 18px rgba(99,102,241,0.12); }
+.proj-card h4 { font-size:0.88rem; font-weight:800; color:var(--primary); display:flex; align-items:center; gap:0.4rem; }
+.proj-card h4 i { font-style:normal; color:#f59e0b; font-size:0.8rem; }
+.proj-card p { font-size:0.76rem; color:var(--text-muted); margin-top:0.3rem; line-height:1.5; }
+
+/* Footer */
+.resume-footer { padding:1.1rem 2.8rem; border-top:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; font-size:0.75rem; color:var(--text-muted); }
+.resume-footer a { color:var(--accent); text-decoration:none; font-weight:600; }
+
+/* Back to portfolio */
+.back-top { text-align:center; margin:1.5rem 0 0; }
+.back-top a {
+    display:inline-block; padding:0.6rem 1.8rem; border-radius:50px;
+    background:var(--primary); color:#fff; text-decoration:none;
+    font-size:0.85rem; font-weight:600; transition:all .3s ease;
+}
+.back-top a:hover { background:var(--accent); transform:translateY(-2px); }
+
+/* Responsive */
+@media(max-width:720px){
+    .resume-body { grid-template-columns:1fr; }
+    .side { border-right:none; border-bottom:1px solid var(--line); }
+    .contact-line { text-align:left; }
+    .proj-grid { grid-template-columns:1fr; }
+}
+@media print {
+    body { background:#fff; padding:0; }
+    .page { box-shadow:none; border-radius:0; }
+    .back-top { display:none; }
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+    <!-- Header -->
+    <div class="resume-header">
+        <div class="inner">
+            <div style="display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;">
+                <img src="头像.jpeg" alt="罗凌成" class="avatar">
+                <div>
+                    <div class="name-line">
+                        <h1>罗凌成</h1>
+                        <span class="en">Luo Lingcheng</span>
+                    </div>
+                    <div class="position-tag">空间设计师 / 工程管理技术人员</div>
+                </div>
+            </div>
+            <div class="contact-line">
+                <span>📞 <b>18782115967</b></span><br>
+                <span>📧 <b>494339602@qq.com</b></span><br>
+                <span>📍 <b>四川达州</b> · 本科 · 1991</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="resume-body">
+
+        <!-- Side -->
+        <div class="side">
+
+            <div class="block profile">
+                <div class="block-title">个人简介</div>
+                <p>10 年商业空间设计与工程管理经验，擅长<span class="hl">全流程项目操盘</span>：从文化叙事、方案设计、施工图深化到报价、现场管理全程参与。</p>
+                <p style="margin-top:.6rem;">2022 年推进北京及周边 <b style="color:var(--primary);">46 家</b>茅台三代专卖店标准化；2024 年并行管理 <b style="color:var(--primary);">40 个项目</b>，覆盖全国 15+ 城市。</p>
+            </div>
+
+            <div class="block">
+                <div class="block-title">核心能力</div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>项目管理</span><span style="color:var(--text-muted);font-weight:600;">95%</span></div>
+                    <div class="bar"><i style="width:95%;"></i></div>
+                    <div class="skill-desc">XMind 可视化 / 多项目排期 / 进度控制 / 资源协调</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>商务对接</span><span style="color:var(--text-muted);font-weight:600;">90%</span></div>
+                    <div class="bar"><i style="width:90%;"></i></div>
+                    <div class="skill-desc">合同拟定 / 报价编制 / 商务函件 / 客户谈判</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>技术广度</span><span style="color:var(--text-muted);font-weight:600;">92%</span></div>
+                    <div class="bar"><i style="width:92%;"></i></div>
+                    <div class="skill-desc">CAD/SU 精装 · 土建结构 / 钢结构 / 给排水电气图纸绘制及审核</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>AI 工具</span><span style="color:var(--text-muted);font-weight:600;">70%</span></div>
+                    <div class="bar"><i style="width:70%;"></i></div>
+                    <div class="skill-desc">Stable Diffusion（2023）/ Claude Code / AI 辅助设计工作流</div>
+                </div>
+            </div>
+
+            <div class="block">
+                <div class="block-title">业绩概览</div>
+                <div class="stats-mini">
+                    <div class="stat-mini"><div class="num">40<em>+</em></div><div class="desc">年度项目数 (2024)</div></div>
+                    <div class="stat-mini"><div class="num">46</div><div class="desc">专卖店标准化</div></div>
+                    <div class="stat-mini"><div class="num">15<em>+</em></div><div class="desc">城市覆盖</div></div>
+                    <div class="stat-mini"><div class="num">205<em>+</em></div><div class="desc">XMind 管理导图</div></div>
+                </div>
+            </div>
+
+            <div class="block">
+                <div class="block-title">基础信息</div>
+                <p style="font-size:.82rem;color:var(--text-secondary);line-height:2;">
+                    籍贯：四川达州　民族：汉族<br>
+                    婚姻：已婚　　政治面貌：群众<br>
+                    学历：台州学院（本科）　　求职意向：设计师 / 工程技术
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Main -->
+        <div class="main">
+
+            <div class="block">
+                <div class="block-title">工作经历</div>
+
+                <div class="exp-item">
+                    <div class="exp-company">
+                        <h3>四川天一恒创装饰工程有限公司</h3>
+                        <span class="date">2022 至今</span>
+                    </div>
+                    <div class="exp-role">空间设计师 / 项目跟进 · 全流程操盘</div>
+                    <span class="exp-year">2026 品类拓展期</span>
+                    <ul>
+                        <li><b>追觅家居智能体验馆</b>（智能家居）前期策划、<b>署霸食品集团展厅</b>（含报价清单与考察项）、恒大金碧天下/金宝花园别墅（土建结构/钢结构施工图）</li>
+                    </ul>
+                    <span class="exp-year">2025 全案深耕期</span>
+                    <ul>
+                        <li><b>邯郸乐园·茅台文化体验馆</b> — 全流程负责，产出 1.8GB 申报文本；<b>北京·品尚茅台文化体验馆</b>申报方案 + 施工图迭代</li>
+                        <li>参与《中国茅台老酒馆建设和评审标准》草案编写；修订公司规章制度，参与组织架构与绩效考核搭建</li>
+                    </ul>
+                    <span class="exp-year">2024 高强度并行期 — 40 个项目</span>
+                    <ul>
+                        <li>编号制管理 40 个项目覆盖全国 15+ 城市；北京四合院品藏馆、上海/南京/郑州品藏馆、澳门新濠影滙（境外）、淄博/日照/合肥/淮安/武汉等门店</li>
+                    </ul>
+                    <span class="exp-year">2023 全国铺开期</span>
+                    <ul>
+                        <li><b>新疆中酒汇·茅台文化体验馆</b>（方案施工图 + 预算）；拟定设计合同、编制设计取费标准、撰写商务函件</li>
+                    </ul>
+                    <span class="exp-year">2022 入行期 — 46 家专卖店标准化</span>
+                    <ul>
+                        <li>推进北京及周边 <b>46 家茅台三代专卖店</b>设计标准化，建立统一设计模板与施工标准；XMind 日报周报体系；成都中酒汇 / 京糖 WHISKY 公馆 / 重庆商源酒店</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-company">
+                        <h3>融盛装饰有限公司</h3>
+                        <span class="date">2019 - 2021</span>
+                    </div>
+                    <div class="exp-role">深化设计师 / 现场技术员</div>
+                    <ul>
+                        <li>施工图深化：龙年 LOFT 公寓（1-27 层）/ <b>麓湖 C20 样板间</b> / 保税中心大堂及公区</li>
+                        <li>材料下单：石材 / 墙地砖排版，木门 / 橱柜 / 五金洁具选型；各流程节点优化</li>
+                        <li>现场技术：技术交底 / 图纸会审 / 签证变更 / 进度计划；项目：麓湖 C20 组团（2021-2022 年跟进）/ 中铁西派宸越</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="block">
+                <div class="block-title">代表项目</div>
+                <div class="proj-grid">
+                    <div class="proj-card"><h4>邯郸茅台文化体验馆</h4><p>全流程操盘 · 1.8GB 申报文本</p></div>
+                    <div class="proj-card"><h4>北京 46 家专卖店标准化</h4><p>2022 年推进 · 统一设计施工标准</p></div>
+                    <div class="proj-card"><h4>朗樾园</h4><p>北京顺义高端住宅 · 茅台生活馆</p></div>
+                    <div class="proj-card"><h4>新疆中酒汇体验馆</h4><p>钢结构 + 给排水 + 电气 + 预算报价</p></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="resume-footer">
+        <span>© 2026 罗凌成 · 简历</span>
+        <span>可 Ctrl+P 打印导出 PDF</span>
+    </div>
+
+</div>
+
+<div class="back-top"><a href="index_with_images.html">← 返回作品集</a></div>
+
+</body>
+</html>

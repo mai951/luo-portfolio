@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>罗凌成 · 空间设计师 — 作品集</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        :root {
+            --primary: #0f0a2a; --accent: #6366f1; --accent-light: #818cf8;
+            --accent-glow: rgba(99,102,241,0.15); --bg: #faf9f6; --card: #ffffff;
+            --text: #1a1a2e; --text-secondary: #64748b; --text-muted: #94a3b8;
+            --border: rgba(0,0,0,0.06); --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.06); --shadow-lg: 0 20px 60px rgba(0,0,0,0.08);
+            --radius: 20px; --radius-sm: 12px; --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; scroll-padding-top:100px; }
+        body { font-family:'Inter','Noto Sans SC',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; overflow-x:hidden; }
+
+        /* === Nav === */
+        nav {
+            position:fixed; top:0; left:0; width:100%;
+            background:rgba(250,249,246,0.85); backdrop-filter:blur(20px);
+            padding:0 2rem; display:flex; justify-content:center; align-items:center;
+            z-index:999; border-bottom:1px solid var(--border);
+        }
+        .nav-inner { display:flex; align-items:center; gap:0.5rem; max-width:900px; }
+        .nav-logo { font-weight:800; font-size:1rem; color:var(--primary); margin-right:1.5rem; }
+        nav a { color:var(--text-secondary); text-decoration:none; font-weight:500; font-size:0.88rem; padding:0.6rem 1rem; border-radius:8px; transition:all var(--transition); }
+        nav a:hover, nav a.active { color:var(--primary); background:var(--accent-glow); }
+
+        /* === Header === */
+        header {
+            min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+            text-align:center; padding:6rem 2rem 4rem; position:relative; overflow:hidden; background:var(--primary);
+        }
+        header::before {
+            content:''; position:absolute; inset:0;
+            background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(99,102,241,0.3) 0%,transparent 70%),
+            radial-gradient(ellipse 60% 40% at 80% 80%,rgba(139,92,246,0.15) 0%,transparent 60%);
+        }
+        header::after {
+            content:''; position:absolute; inset:0;
+            background-image:radial-gradient(rgba(255,255,255,0.08) 1px,transparent 1px);
+            background-size:40px 40px;
+        }
+        .hero-content { position:relative; z-index:1; max-width:800px; }
+        .hero-badge {
+            display:inline-block; background:rgba(99,102,241,0.15); color:var(--accent-light);
+            padding:0.5rem 1.5rem; border-radius:50px; font-size:0.85rem; font-weight:600;
+            margin-bottom:2rem; border:1px solid rgba(99,102,241,0.2);
+        }
+        header h1 {
+            font-size:clamp(2.8rem,7vw,5rem); font-weight:900; color:#fff; line-height:1.1;
+            margin-bottom:1.5rem; letter-spacing:-2px;
+        }
+        header h1 .gradient-text {
+            background:linear-gradient(135deg,#c4b5fd,#818cf8,#6366f1);
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+        }
+        header .subtitle { font-size:clamp(1rem,2.5vw,1.25rem); color:rgba(255,255,255,0.6); max-width:550px; margin:0 auto 3rem; }
+        .hero-stats { display:flex; justify-content:center; gap:3rem; flex-wrap:wrap; }
+        .hero-stat { text-align:center; }
+        .hero-stat .num { font-size:clamp(2rem,4vw,3rem); font-weight:800; color:#fff; display:block; line-height:1; }
+        .hero-stat .num span { color:var(--accent-light); }
+        .hero-stat .label { font-size:0.8rem; color:rgba(255,255,255,0.45); margin-top:0.5rem; font-weight:500; text-transform:uppercase; letter-spacing:1px; }
+
+        /* === Sections === */
+        section { padding:6rem 2rem; max-width:1200px; margin:0 auto; }
+        .section-label { font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--accent); margin-bottom:0.5rem; }
+        section h2 { font-size:clamp(2rem,4vw,2.8rem); font-weight:800; color:var(--primary); letter-spacing:-1px; margin-bottom:1rem; }
+        .section-desc { font-size:1.1rem; color:var(--text-secondary); max-width:650px; margin-bottom:3rem; }
+
+        /* === Cards === */
+        .about-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; margin-top:2rem; }
+        .about-card { background:var(--card); border-radius:var(--radius); padding:2rem; border:1px solid var(--border); transition:all var(--transition); }
+        .about-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+        .about-card .icon { width:48px; height:48px; border-radius:14px; background:var(--accent-glow); display:flex; align-items:center; justify-content:center; font-size:1.4rem; margin-bottom:1.2rem; }
+        .about-card h3 { font-size:1.15rem; font-weight:700; color:var(--primary); margin-bottom:0.8rem; }
+        .about-card p { color:var(--text-secondary); font-size:0.92rem; margin-bottom:1.2rem; }
+        .tag-group { display:flex; flex-wrap:wrap; gap:0.5rem; }
+        .tag { background:var(--bg); color:var(--text-secondary); padding:0.35rem 0.9rem; border-radius:8px; font-size:0.78rem; font-weight:600; border:1px solid var(--border); }
+
+        /* === Skills === */
+        .skills-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin-top:2rem; }
+        .skill-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius-sm); padding:1.5rem; transition:all var(--transition); }
+        .skill-card:hover { transform:translateY(-2px); box-shadow:var(--shadow-md); }
+        .skill-card h3 { font-size:1rem; font-weight:700; color:var(--primary); margin-bottom:0.6rem; }
+        .skill-card p { color:var(--text-secondary); font-size:0.85rem; }
+
+        /* === Timeline === */
+        .timeline { position:relative; padding-left:2rem; margin-top:3rem; }
+        .timeline::before { content:''; position:absolute; left:0; top:8px; bottom:8px; width:2px; background:linear-gradient(180deg,var(--accent),var(--accent-light),transparent); }
+        .timeline-item { position:relative; margin-bottom:2.5rem; padding-left:2rem; }
+        .timeline-item::before { content:''; position:absolute; left:-2rem; top:8px; width:12px; height:12px; background:var(--card); border:2.5px solid var(--accent); border-radius:50%; }
+        .timeline-item:first-child::before { background:var(--accent); }
+        .year-badge { display:inline-block; background:var(--accent); color:#fff; padding:0.3rem 1rem; border-radius:8px; font-size:0.78rem; font-weight:700; margin-bottom:0.8rem; }
+        .timeline-item h3 { font-size:1.1rem; font-weight:700; color:var(--primary); margin-bottom:0.8rem; }
+        .timeline-item ul { list-style:none; }
+        .timeline-item li { padding:0.4rem 0; color:var(--text-secondary); font-size:0.92rem; padding-left:1.2rem; position:relative; }
+        .timeline-item li::before { content:'›'; position:absolute; left:0; color:var(--accent); font-weight:700; font-size:1.1rem; }
+        .timeline-item li strong { color:var(--primary); }
+
+        /* === Projects === */
+        .projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:1.5rem; margin-top:2rem; }
+        .project-card { background:var(--card); border-radius:var(--radius); overflow:hidden; border:1px solid var(--border); transition:all 0.4s ease; }
+        .project-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
+        .project-img { width:100%; height:220px; object-fit:cover; display:block; }
+        .project-img-wrap { overflow:hidden; position:relative; }
+        .detail-btn {
+            position:absolute; right:1rem; bottom:1rem; z-index:10;
+            background:rgba(15,10,42,0.78); color:#fff;
+            border:1px solid rgba(255,255,255,0.3);
+            padding:0.55rem 1.4rem; border-radius:50px;
+            font-size:0.85rem; font-weight:700; cursor:pointer;
+            backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+            letter-spacing:0.5px; transition:all var(--transition);
+            box-shadow:0 4px 15px rgba(0,0,0,0.3);
+            display:inline-flex; align-items:center; gap:0.4rem;
+        }
+        .detail-btn:hover {
+            background:var(--accent); border-color:var(--accent);
+            transform:translateY(-2px); box-shadow:0 8px 25px rgba(99,102,241,0.45);
+        }
+        .project-header { background:var(--primary); color:#fff; padding:1.2rem 1.5rem; }
+        .project-header h3 { font-size:1.05rem; font-weight:700; }
+        .project-body { padding:1.5rem; }
+        .project-body p { color:var(--text-secondary); font-size:0.9rem; }
+        .project-placeholder { height:220px; background:linear-gradient(135deg,var(--primary) 0%,#1a1a3e 50%,var(--accent) 100%); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.7); font-size:0.95rem; text-align:center; padding:2rem; line-height:1.8; }
+
+        /* === Stats Dark === */
+        .stats-dark { background:var(--primary); border-radius:var(--radius); padding:4rem 3rem; margin:2rem 0; position:relative; overflow:hidden; }
+        .stats-dark::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 30% 50%,rgba(99,102,241,0.15) 0%,transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(139,92,246,0.1) 0%,transparent 40%); }
+        .stats-dark h2 { color:#fff; position:relative; }
+        .stats-dark h2::after { content:''; position:absolute; bottom:-5px; left:0; width:60px; height:4px; background:var(--accent); border-radius:2px; }
+        .stats-grid-dark { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:1.5rem; margin-top:2rem; position:relative; }
+        .stat-block { text-align:center; padding:1.5rem 1rem; border-radius:var(--radius-sm); background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); transition:all var(--transition); }
+        .stat-block:hover { background:rgba(255,255,255,0.08); transform:translateY(-3px); }
+        .stat-block .number { font-size:clamp(2rem,4vw,2.5rem); font-weight:900; color:#fff; display:block; margin-bottom:0.5rem; }
+        .stat-block .label { font-size:0.82rem; color:rgba(255,255,255,0.45); }
+
+        /* === Summary === */
+        .summary-section { background:var(--card); border-radius:var(--radius); padding:2.5rem; border:1px solid var(--border); margin-top:2rem; }
+        .summary-section h3 { font-size:1.2rem; font-weight:700; color:var(--primary); margin-bottom:1rem; }
+        .summary-section>p { color:var(--text-secondary); font-size:0.95rem; margin-bottom:1.5rem; }
+        .summary-charts { display:grid; grid-template-columns:repeat(auto-fit,minmax(380px,1fr)); gap:1.5rem; }
+        .summary-chart img { width:100%; height:auto; display:block; border-radius:var(--radius-sm); }
+        .summary-chart p { padding:0.8rem 1rem; font-size:0.8rem; color:var(--text-muted); background:var(--bg); border-radius:0 0 var(--radius-sm) var(--radius-sm); }
+        .summary-stats { display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem; }
+        .summary-stat { background:var(--bg); border-radius:var(--radius-sm); padding:1.5rem; text-align:center; flex:1; min-width:120px; border:1px solid var(--border); }
+        .summary-stat .num { font-size:1.8rem; font-weight:800; color:var(--primary); }
+        .summary-stat .desc { font-size:0.8rem; color:var(--text-muted); margin-top:0.3rem; }
+
+        /* === Contact === */
+        .contact-section { text-align:center; padding:5rem 2rem; background:var(--card); margin:3rem 0; border-radius:var(--radius); border:1px solid var(--border); }
+        .contact-section h2 { margin-bottom:0.5rem; }
+        .contact-section>p { color:var(--text-secondary); margin-bottom:2rem; }
+        .contact-buttons { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; }
+        .btn { display:inline-flex; align-items:center; gap:0.5rem; padding:0.9rem 2rem; background:var(--primary); color:#fff; text-decoration:none; border-radius:12px; font-weight:600; font-size:0.92rem; transition:all var(--transition); }
+        .btn:hover { transform:translateY(-2px); box-shadow:0 8px 25px rgba(15,10,42,0.2); }
+        .btn-outline { background:transparent; color:var(--primary); border:1px solid var(--border); }
+        .btn-outline:hover { background:var(--primary); color:#fff; }
+        .access-info { margin-top:2.5rem; padding-top:2rem; border-top:1px solid var(--border); }
+        .access-info p { font-size:0.88rem; color:var(--text-muted); }
+        .access-info code { background:var(--bg); padding:0.3rem 0.8rem; border-radius:6px; font-size:0.85rem; color:var(--accent); border:1px solid var(--border); }
+
+        /* === Footer === */
+        footer { background:var(--primary); color:rgba(255,255,255,0.5); text-align:center; padding:3rem 2rem; }
+        footer .brand { display:inline-block; font-weight:800; font-size:1.1rem; color:#fff; margin-bottom:0.5rem; }
+        footer p { font-size:0.85rem; }
+        footer .divider { width:40px; height:2px; background:rgba(255,255,255,0.15); margin:1.5rem auto; border-radius:1px; }
+
+        /* === Responsive === */
+        @media(max-width:768px){ nav{padding:0 1rem;} nav a{padding:0.5rem 0.6rem;font-size:0.8rem;} section{padding:4rem 1.5rem;} .projects-grid,.summary-charts{grid-template-columns:1fr;} .stats-dark{padding:3rem 1.5rem;} }
+        @media(max-width:480px){ header{padding:7rem 1rem 3rem;min-height:90vh;} .hero-stats{flex-direction:column;gap:1.5rem;} .contact-buttons{flex-direction:column;align-items:center;} .btn{width:100%;max-width:280px;justify-content:center;} }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-inner">
+            <span class="nav-logo">罗凌成</span>
+            <a href="#about">关于</a>
+            <a href="#skills">能力</a>
+            <a href="#experience">经历</a>
+            <a href="#projects">项目</a>
+            <a href="#summary">总结</a>
+            <a href="#contact">联系</a>
+            <a href="简历.html">简历</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header>
+        <div class="hero-content">
+            <div class="hero-badge">空间设计师 / 工程管理技术人员</div>
+            <h1>从文化叙事到<br><span class="gradient-text">空间落地</span></h1>
+            <p class="subtitle">5 年深耕酒类文化体验空间，全流程操盘 30+ 项目。从概念方案到施工图到多媒体到报价到现场，完整覆盖。</p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="num">10<span>+</span></span>
+                    <span class="label">年经验</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="num">40</span>
+                    <span class="label">年项目跟进</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="num">46</span>
+                    <span class="label">标准化门店</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section id="about">
+        <div>
+            <div class="section-label">About</div>
+            <h2>关于我</h2>
+            <p class="section-desc">2019 年起行，深耕工程管理技术与酒类文化体验空间设计。从施工图深化到全流程操盘，覆盖品藏馆、体验馆、专卖店、企业展厅、高端住宅等多元业态。</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-card">
+                <div class="icon">🎯</div>
+                <h3>设计能力</h3>
+                <p>商业空间设计、文化展陈策划、效果图渲染、施工图深化，从概念到落地全流程操盘。</p>
+                <div class="tag-group">
+                    <span class="tag">方案设计</span>
+                    <span class="tag">文化叙事</span>
+                    <span class="tag">3D建模</span>
+                    <span class="tag">现场管理</span>
+                </div>
+            </div>
+            <div class="about-card">
+                <div class="icon">📊</div>
+                <h3>多项目管理</h3>
+                <p>编号制管理 + XMind 可视化，2024 年并行推进 40 个项目、签约 20 个，15+ 城市同步。</p>
+                <div class="tag-group">
+                    <span class="tag">编号制管理</span>
+                    <span class="tag">进度控制</span>
+                    <span class="tag">资源协调</span>
+                    <span class="tag">商务推进</span>
+                </div>
+            </div>
+            <div class="about-card">
+                <div class="icon">💼</div>
+                <h3>商务全流程</h3>
+                <p>从意向报价、概念方案、施工图到合同拟定、报价清单、设计取费标准，全程负责。</p>
+                <div class="tag-group">
+                    <span class="tag">合同拟定</span>
+                    <span class="tag">客户沟通</span>
+                    <span class="tag">报价策略</span>
+                    <span class="tag">商务函件</span>
+                </div>
+            </div>
+            <div class="about-card">
+                <div class="icon">⚙️</div>
+                <h3>技术广度</h3>
+                <p>施工图覆盖精装 / 土建结构 / 钢结构 / 给排水 / 电气，参与行业标准草案编写。</p>
+                <div class="tag-group">
+                    <span class="tag">施工图</span>
+                    <span class="tag">钢结构</span>
+                    <span class="tag">结构设计</span>
+                    <span class="tag">AI工具</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <div>
+            <div class="section-label">Skills</div>
+            <h2>核心能力</h2>
+            <p class="section-desc">从设计到商务到技术到管理，形成完整的能力闭环。</p>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>项目管理</h3>
+                <p>XMind 可视化 / 编号制排期 / 进度控制 / 商务过程 &amp; 实施项目分类管理</p>
+            </div>
+            <div class="skill-card">
+                <h3>商务对接</h3>
+                <p>合同拟定审核 / 报价编制 / 商务函件 / 客户谈判 / 设计取费标准制定</p>
+            </div>
+            <div class="skill-card">
+                <h3>技术把关</h3>
+                <p>精装施工图 / 土建结构图 / 钢结构图 / 给排水电气 / 现场跟进</p>
+            </div>
+            <div class="skill-card">
+                <h3>设计软件</h3>
+                <p>AutoCAD / SketchUp / CorelDRAW</p>
+            </div>
+            <div class="skill-card">
+                <h3>AI 工具</h3>
+                <p>Stable Diffusion (2023起) / Claude Code / AI 辅助设计工作流</p>
+            </div>
+            <div class="skill-card">
+                <h3>文案策划</h3>
+                <p>文化叙事 / 解说词 / 展陈策划 / 《中国茅台老酒馆建设标准》草案</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+        <div>
+            <div class="section-label">Experience</div>
+            <h2>工作经历</h2>
+            <p class="section-desc">从入行标准化到全流程操盘，到多项目并行管理，到新品类拓展。</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="year-badge">2026 品类拓展期</span>
+                <h3>四川天一恒创装饰工程有限公司 — 空间设计师/施工图</h3>
+                <ul>
+                    <li><strong>追觅家居智能体验馆</strong> — 智能家居零售空间，新品类拓展前期概念方案</li>
+                    <li><strong>署霸食品集团展厅+大堂</strong> — 含报价清单与考察项设计</li>
+                    <li><strong>恒大金碧天下 / 金宝花园别墅</strong> — 高端住宅全案</li>
+                    <li><strong>环球广场办公室</strong> — 商务办公空间</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <span class="year-badge">2025 全案深耕期</span>
+                <ul>
+                    <li><strong>邯郸·茅台文化体验馆</strong> — 全流程负责，产出前期规划，中期现场跟进，后期解说词</li>
+                    <li><strong>北京·品尚茅台文化体验馆</strong> — 申报方案 + 施工图迭代</li>
+                    <li>参与《中国茅台老酒馆建设和评审标准》草案编写</li>
+                    <li>管理升级：修订公司规章制度，参与绩效考核体系搭建</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <span class="year-badge">2024 高强度并行期 — 40/20</span>
+                <ul>
+                    <li>编号制并行推进 <strong>40 个项目</strong>，商务过程 + 实施项目双线管理</li>
+                    <li>品藏馆 19 个 + 体验馆 13 个（包含京东茅台文化体验馆前期规划），华致酒行si设计前期报价，覆盖全国 15+ 城市</li>
+                    <li>工作室管理：考勤 / 制度 / 客资 / 复盘汇报</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <span class="year-badge">2023 全国铺开期</span>
+                <ul>
+                    <li>未签合同推进 <strong>15 个项目</strong>，新签合同 <strong>8 个项目</strong></li>
+                    <li><strong>新疆中酒汇体验馆</strong> — 结构 + 给排水 + 电气 + 预算 + 报价</li>
+                    <li>茅台海外专卖店 VI 设计、品藏馆视觉识别系统规范</li>
+                    <li>商务成果：拟定设计合同、编制设计取费标准、撰写商务函件</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <span class="year-badge">2022 入行期 — 46 家标准化</span>
+                <ul>
+                    <li><strong>主导北京及周边 46 家茅台专卖店标准化推进</strong>，建立统一设计模板与施工标准</li>
+                    <li>XMind 日报周报体系建立，三代专卖店需求分析</li>
+                    <li>鼎醴会所设计线上沟通及跟进（346天持续服务）</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <span class="year-badge">2019-2021 融盛装饰</span>
+                <ul>
+                    <li>施工图深化：龙年LOFT公寓 / 麓湖C20样板间 /中铁西派城CD块 / 保税公区精装</li>
+                    <li>材料下单：石材 / 墙地砖排版，材料选型</li>
+                    <li>节点优化：吊顶龙骨 / 门窗套防潮 / 消防箱修改 / 幕墙收口等以及现场交底</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <div>
+            <div class="section-label">Projects</div>
+            <h2>代表项目</h2>
+            <p class="section-desc">从大型文化体验馆到标准化门店，从高端住宅到企业展厅，覆盖多元业态。</p>
+        </div>
+                <div class="projects-grid">
+            <div class="project-card" onclick="window.open('项目/邯郸茅台文化体验馆/index.html','_blank')" style="cursor:pointer;">
+                <div class="project-img-wrap">
+                    <img src="images/邯郸茅台文化体验馆/1.png" alt="邯郸茅台文化体验馆" class="project-img" onerror="this.style.opacity=0">
+                <button class="detail-btn">➤ 查看详情</button>
+                </div>
+                <div class="project-header">
+                    <h3>邯郸·茅台文化体验馆</h3>
+                </div>
+                <div class="project-body">
+                    <p>全流程操盘，产出 1.8GB 申报文本。从文化叙事到施工图到模型到报价到现场，完整覆盖项目全生命周期。</p>
+                </div>
+            </div>
+            <div class="project-card" onclick="window.open('项目/朗樾园/index.html','_blank')" style="cursor:pointer;">
+                <div class="project-img-wrap">
+                    <img src="images/朗樾园/1.jpg" alt="朗樾园" class="project-img" onerror="this.style.opacity=0">
+                <button class="detail-btn">➤ 查看详情</button>
+                </div>
+                <div class="project-header">
+                    <h3>朗樾园 · 茅台生活馆</h3>
+                </div>
+                <div class="project-body">
+                    <p>北京顺义高端住宅项目，含别墅精装、前花园景观、茅台生活馆空间设计，2024-2025 年持续推进。</p>
+                </div>
+            </div>
+            <div class="project-card" onclick="window.open('项目/麓湖C20/index.html','_blank')" style="cursor:pointer;">
+                <div class="project-img-wrap">
+                    <img src="images/麓湖C20/1.png" alt="麓湖C20" class="project-img" onerror="this.style.opacity=0">
+                <button class="detail-btn">➤ 查看详情</button>
+                </div>
+                <div class="project-header">
+                    <h3>麓湖 C20 · 万华</h3>
+                </div>
+                <div class="project-body">
+                    <p>成都麓湖生态城 C20 组团精装设计及公区设计，2021-2022 年跟进，涉及石材排版、材料下单等。</p>
+                </div>
+            </div>
+            <div class="project-card" onclick="window.open('项目/茅台专卖店/index.html','_blank')" style="cursor:pointer;">
+                <div class="project-img-wrap">
+                    <img src="images/茅台专卖店/1.png" alt="茅台专卖店" class="project-img" onerror="this.style.opacity=0">
+                <button class="detail-btn">➤ 查看详情</button>
+                </div>
+                <div class="project-header">
+                    <h3>茅台第三代专卖店</h3>
+                </div>
+                <div class="project-body">
+                    <p>2022 年主导北京及周边 46 家茅台专卖店标准化推进，建立统一设计模板与施工标准，效率提升 40%。</p>
+                </div>
+            </div>
+            <div class="project-card" onclick="window.open('项目/茅友宴/index.html','_blank')" style="cursor:pointer;">
+                <div class="project-img-wrap">
+                    <img src="images/茅友宴/1.jpg" alt="茅友宴" class="project-img" onerror="this.style.opacity=0">
+                <button class="detail-btn">➤ 查看详情</button>
+                </div>
+                <div class="project-header">
+                    <h3>1915 · 茅友宴</h3>
+                </div>
+                <div class="project-body">
+                    <p>茅台文化餐饮空间设计，将 1915 巴拿马万国博览会茅台金奖历史融入空间，涵盖方案设计、技术配套等。</p>
+                </div>
+            </div>
+            <div class="project-card" onclick="window.open('项目/其他/index.html','_blank')" style="cursor:pointer;">
+                <div class="project-img-wrap">
+                    <img src="images/其他/1.png" alt="其他" class="project-img" onerror="this.style.opacity=0">
+                <button class="detail-btn">➤ 查看详情</button>
+                </div>
+                <div class="project-header">
+                    <h3>其他</h3>
+                </div>
+                <div class="project-body">
+                    <p>大型文化体验馆含夹层钢结构 + 机电预算；品高商贸高端品鉴包间效果图设计。多项目并行管理成果。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Dark -->
+    <section id="stats">
+        <div class="stats-dark">
+            <div class="section-label" style="color:var(--accent-light);">Key Metrics</div>
+            <h2>业绩概览</h2>
+            <div class="stats-grid-dark">
+                <div class="stat-block"><span class="number">40</span><span class="label">年度项目数</span></div>
+                <div class="stat-block"><span class="number">46</span><span class="label">专卖店标准化</span></div>
+                <div class="stat-block"><span class="number">15+</span><span class="label">城市覆盖</span></div>
+                <div class="stat-block"><span class="number">205+</span><span class="label">XMind 导图</span></div>
+                <div class="stat-block"><span class="number">30</span><span class="label">签约合同数</span></div>
+                <div class="stat-block"><span class="number">100%</span><span class="label">按期交付率</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Summary -->
+    <section id="summary">
+        <div>
+            <div class="section-label">Summary</div>
+            <h2>年度总结</h2>
+            <p class="section-desc">通过 XMind 思维导图进行年度项目梳理，形成完整的项目管理与复盘体系。</p>
+        </div>
+        <div class="summary-section">
+            <h3>📋 2023–2024 年项目总览</h3>
+            <p>从 2022 年延续项目及 2023 年新签合同，到 2024 年高峰期 40 个项目的全面管理。涵盖品藏馆、体验馆、生活馆、三代专卖店等多种业态。</p>
+            <div class="summary-charts">
+                <div class="summary-chart"><img src="images/project_summary_2023.png" alt="2023-2024项目总结"><p>来源：F:\罗\2023\000\2023-2024年前项目总结.png</p></div>
+                <div class="summary-chart"><img src="images/project_summary_2024.png" alt="2024年终项目总结"><p>来源：F:\罗\2025\2024年终项目总结.png</p></div>
+            </div>
+                <div class="summary-chart"><img src="images/mj.png" alt="XMind思维导图"><p>XMind 项目思维导图</p></div>
+        </div>
+        <div class="summary-section" style="margin-top:1.5rem;">
+            <h3>📈 关键数字</h3>
+            <div class="summary-stats">
+                <div class="summary-stat"><div class="num">40</div><div class="desc">2024 项目跟进</div></div>
+                <div class="summary-stat"><div class="num">30+</div><div class="desc">商务签约合同</div></div>
+                <div class="summary-stat"><div class="num">19</div><div class="desc">品藏馆项目</div></div>
+                <div class="summary-stat"><div class="num">13</div><div class="desc">体验馆项目</div></div>
+                <div class="summary-stat"><div class="num">15+</div><div class="desc">覆盖城市</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="contact-section">
+            <div class="section-label">Contact</div>
+            <h2>建立联系</h2>
+            <p>如果您对我的经历感兴趣，或有任何合作机会，欢迎联系我。</p>
+            <div class="contact-buttons">
+                <a href="mailto:your-email@example.com" class="btn">📧 电子邮箱</a>
+                <a href="简历.html" class="btn">📄 个人简历</a>
+                <a href="tel:+86-your-phone" class="btn btn-outline">📱 联系电话</a>
+            </div>
+            <div class="access-info">
+                <p><br></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="brand">MAX DESIGN</div>
+        <p>© 2026 Max·Design Studio</p>
+        <div class="divider"></div>
+        <p>基于 F:\\罗 2019-2026 工作文件复盘 · 更新日期：2026 年 7 月</p>
+    </footer>
+
+
+
+
+
+    <script>
+        // Detail button: reuse parent card link
+        document.querySelectorAll('.detail-btn').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                e.preventDefault();
+                var card = this.closest('.project-card');
+                if (!card) return;
+                var m = card.getAttribute('onclick');
+                if (m) {
+                    var url = m.match(/'([^']+)'/);
+                    if (url) window.open(url[1], '_blank');
+                }
+            });
+        });
+    </script>
+</body></html>
