@@ -7,32 +7,24 @@
 <meta name="description" content="邯郸乐园商贸·茅台文化体验馆全流程操盘，从文化叙事到施工落地，2年+持续跟进。">
 <style>
 :root {
-  --crimson-deep:  #2D070F;
-  --crimson-dark:  #4A101C;
-  --crimson:       #7A1628;
-  --crimson-mid:   #9B2035;
-  --crimson-light: #B84554;
-  --crimson-soft:  #F5E8EA;
-  --gold:          #C4A265;
-  --gold-light:    #DBC89B;
-  --gold-pale:     #F2E8D5;
-  --bg:            #FBF9F6;
-  --card:          #FFFFFF;
-  --text:          #1C1C1C;
-  --t2:            #5C5C5C;
-  --t3:            #999;
-  --border:        rgba(0,0,0,0.05);
-  --shadow:        0 4px 24px rgba(0,0,0,0.06);
-  --shadow-lg:     0 20px 60px rgba(0,0,0,0.10);
-  --radius:        14px;
+  --primary: #0f0a2a;
+  --accent: #6366f1;
+  --accent-light: #818cf8;
+  --accent-glow: rgba(99,102,241,0.12);
+  --bg: #faf9f6;
+  --card: #ffffff;
+  --text: #1a1a2e;
+  --t2: #64748b;
+  --t3: #94a3b8;
+  --border: rgba(0,0,0,0.05);
+  --shadow: 0 4px 20px rgba(0,0,0,0.05);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.08);
+  --radius: 14px;
   --t: 0.3s cubic-bezier(0.4,0,0.2,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-  font-family:'PingFang SC','Microsoft YaHei','Hiragino Sans GB',system-ui,sans-serif;
-  background:var(--bg);color:var(--text);line-height:1.75;
-}
+body{font-family:'PingFang SC','Microsoft YaHei','Hiragino Sans GB',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.75}
 
 /* ── Back ── */
 .back-btn{
@@ -43,43 +35,39 @@ body{
   font-weight:600;font-size:.85rem;box-shadow:0 2px 10px rgba(0,0,0,0.05);
   transition:all var(--t);display:inline-flex;align-items:center;gap:.35rem;
 }
-.back-btn:hover{transform:translateY(-2px);color:var(--crimson)}
+.back-btn:hover{transform:translateY(-2px);color:var(--accent)}
 
 /* ── Hero ── */
 .hero{
   min-height:100vh;display:flex;align-items:center;justify-content:center;
   text-align:center;padding:8rem 2rem 5rem;position:relative;overflow:hidden;
-  background:linear-gradient(165deg,
-    #1A0409 0%, #2D070F 20%, #4A101C 45%, #6B1525 65%, #7A1628 85%, #8B3040 100%);
+  background:var(--primary);
 }
 .hero::before{
   content:'';position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse 55% 35% at 25% 25%, rgba(196,162,101,0.15) 0%, transparent 55%),
-    radial-gradient(ellipse 45% 30% at 75% 70%, rgba(196,162,101,0.10) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 40% at 50% 50%, rgba(196,162,101,0.05) 0%, transparent 60%);
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(99,102,241,0.3) 0%,transparent 70%),
+       radial-gradient(ellipse 60% 40% at 80% 80%,rgba(139,92,246,0.15) 0%,transparent 60%);
 }
 .hero::after{
   content:'';position:absolute;inset:0;
-  background-image:radial-gradient(rgba(255,255,255,0.03) 1px,transparent 1px);
+  background-image:radial-gradient(rgba(255,255,255,0.06) 1px,transparent 1px);
   background-size:44px 44px;
 }
 .hero-content{position:relative;z-index:1;max-width:800px}
 .hero-badge{
-  display:inline-block;background:rgba(255,255,255,0.08);
-  color:var(--gold-light);padding:.5rem 1.6rem;
-  border-radius:50px;font-size:.8rem;font-weight:600;
-  margin-bottom:2rem;border:1px solid rgba(255,255,255,0.12);
-  letter-spacing:1px;
+  display:inline-block;background:rgba(99,102,241,0.15);color:var(--accent-light);
+  padding:.5rem 1.6rem;border-radius:50px;font-size:.82rem;font-weight:600;
+  margin-bottom:2rem;border:1px solid rgba(99,102,241,0.2);
 }
 .hero h1{
-  font-family:'STSong','SimSun','Noto Serif CJK SC',serif;
-  font-size:clamp(2.4rem,6vw,4.2rem);font-weight:900;color:#fff;
-  line-height:1.15;margin-bottom:1rem;letter-spacing:-1px;
+  font-size:clamp(2.4rem,6vw,4.2rem);font-weight:900;color:#fff;line-height:1.15;
+  margin-bottom:1rem;letter-spacing:-1.5px;
 }
-.hero h1 em{font-style:normal;
-  background:linear-gradient(135deg,#E8D5A3,#C4A265,#A8883D);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(135deg,#c4b5fd,#818cf8,#6366f1);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
 .hero .sub{
   font-size:clamp(.95rem,2vw,1.15rem);color:rgba(255,255,255,0.55);
   max-width:500px;margin:0 auto 3rem;line-height:1.8;
@@ -88,101 +76,79 @@ body{
 .hero-meta-item{text-align:center}
 .hero-meta-item .v{
   font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;color:#fff;display:block;line-height:1}
-.hero-meta-item .v small{font-size:1.1rem;color:var(--gold)}
+.hero-meta-item .v small{font-size:1.1rem;color:var(--accent-light)}
 .hero-meta-item .l{
-  font-size:.72rem;color:rgba(255,255,255,0.35);margin-top:.4rem;
+  font-size:.72rem;color:rgba(255,255,255,0.4);margin-top:.4rem;
   font-weight:500;text-transform:uppercase;letter-spacing:1.5px}
 
 /* ── Section ── */
 section{padding:5rem 2rem;max-width:1100px;margin:0 auto}
-.s-label{
-  font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;
-  color:var(--crimson);margin-bottom:.4rem}
-section h2{
-  font-family:'STSong','SimSun',serif;
-  font-size:clamp(1.7rem,3.5vw,2.3rem);font-weight:700;
-  color:var(--crimson-dark);margin-bottom:.6rem;letter-spacing:-.5px}
+.s-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--accent);margin-bottom:.4rem}
+section h2{font-size:clamp(1.7rem,3.5vw,2.3rem);font-weight:800;color:var(--primary);margin-bottom:.6rem;letter-spacing:-.5px}
 .s-desc{font-size:1.02rem;color:var(--t2);max-width:650px;margin-bottom:2.5rem;line-height:1.8}
 
 /* ── Quick Stats ── */
 .qstats{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin-bottom:2rem}
-.qs{
-  background:var(--card);border-radius:var(--radius);padding:1.6rem 1rem;
-  text-align:center;border:1px solid var(--border);transition:all var(--t)}
+.qs{background:var(--card);border-radius:var(--radius);padding:1.6rem 1rem;text-align:center;border:1px solid var(--border);transition:all var(--t)}
 .qs:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
-.qs .n{font-size:1.7rem;font-weight:800;color:var(--crimson);display:block}
-.qs .n small{font-size:.9rem;color:var(--crimson-light)}
+.qs .n{font-size:1.7rem;font-weight:800;color:var(--primary);display:block}
+.qs .n small{font-size:.9rem;color:var(--accent)}
 .qs .lb{font-size:.78rem;color:var(--t3);margin-top:.3rem}
 
 /* ── Role ── */
 .roles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
-.role{
-  background:var(--card);border-radius:var(--radius);padding:1.8rem 1.4rem;
-  border:1px solid var(--border);border-top:3px solid var(--crimson);
-  transition:all var(--t)}
+.role{background:var(--card);border-radius:var(--radius);padding:1.8rem 1.4rem;border:1px solid var(--border);transition:all var(--t)}
 .role:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
 .role .icon{font-size:1.6rem;margin-bottom:.8rem;display:block}
-.role h3{font-size:1rem;font-weight:700;color:var(--crimson-dark);margin-bottom:.5rem}
+.role h3{font-size:1rem;font-weight:700;color:var(--primary);margin-bottom:.5rem}
 .role p{color:var(--t2);font-size:.88rem;line-height:1.65}
+.tag-row{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem}
+.tag{background:var(--bg);color:var(--t2);padding:.3rem .8rem;border-radius:6px;font-size:.72rem;font-weight:600;border:1px solid var(--border)}
 
 /* ── Timeline ── */
 .tl{position:relative;padding-left:2rem;margin-top:2rem}
-.tl::before{
-  content:'';position:absolute;left:0;top:8px;bottom:8px;width:2px;
-  background:linear-gradient(180deg,var(--crimson),var(--crimson-light),var(--crimson-soft))}
+.tl::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--accent),var(--accent-light),transparent)}
 .tl-item{position:relative;margin-bottom:2rem;padding-left:2rem}
-.tl-item::before{
-  content:'';position:absolute;left:-2rem;top:8px;width:12px;height:12px;
-  background:var(--card);border:2.5px solid var(--crimson);border-radius:50%}
-.tl-item:first-child::before{background:var(--crimson)}
-.yr{
-  display:inline-block;background:var(--crimson);color:#fff;
-  padding:.25rem .9rem;border-radius:5px;font-size:.75rem;font-weight:700;margin-bottom:.5rem}
-.tl-item h3{font-size:.95rem;font-weight:700;color:var(--crimson-dark);margin-bottom:.3rem}
+.tl-item::before{content:'';position:absolute;left:-2rem;top:8px;width:12px;height:12px;background:var(--card);border:2.5px solid var(--accent);border-radius:50%}
+.tl-item:first-child::before{background:var(--accent)}
+.yr{display:inline-block;background:var(--accent);color:#fff;padding:.25rem .9rem;border-radius:5px;font-size:.75rem;font-weight:700;margin-bottom:.5rem}
+.tl-item h3{font-size:.95rem;font-weight:700;color:var(--primary);margin-bottom:.3rem}
 .tl-item p{color:var(--t2);font-size:.88rem}
 
 /* ── Poster Blocks ── */
 .poster-block{margin-bottom:2.5rem}
-.poster-block img{
-  width:100%;height:auto;display:block;border-radius:var(--radius);
-  box-shadow:var(--shadow-lg);border:1px solid var(--border);cursor:zoom-in}
-.poster-block .cap{
-  text-align:center;margin-top:.7rem;font-size:.82rem;color:var(--t3)}
+.poster-block img{width:100%;height:auto;display:block;border-radius:var(--radius);box-shadow:var(--shadow-lg);border:1px solid var(--border);cursor:zoom-in}
+.poster-block .cap{text-align:center;margin-top:.7rem;font-size:.82rem;color:var(--t3)}
 
 /* ── Deliverables ── */
 .dg{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:.8rem}
-.di{
-  background:var(--card);border-radius:var(--radius);padding:1.6rem 1rem;
-  text-align:center;border:1px solid var(--border);transition:all var(--t)}
-.di:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--crimson-soft)}
+.di{background:var(--card);border-radius:var(--radius);padding:1.6rem 1rem;text-align:center;border:1px solid var(--border);transition:all var(--t)}
+.di:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--accent-glow)}
 .di .icon{font-size:1.8rem;margin-bottom:.5rem;display:block}
-.di h4{font-size:.88rem;font-weight:700;color:var(--crimson-dark);margin-bottom:.2rem}
+.di h4{font-size:.88rem;font-weight:700;color:var(--primary);margin-bottom:.2rem}
 .di p{font-size:.75rem;color:var(--t3);line-height:1.4}
 
 /* ── CTA ── */
 .cta{
   text-align:center;padding:4rem 2rem;border-radius:var(--radius);
   margin:2rem auto;max-width:1100px;position:relative;overflow:hidden;
-  background:linear-gradient(165deg,#1A0409,#2D070F,#4A101C,#6B1525,#7A1628)}
+  background:var(--primary);
+}
 .cta::before{
   content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 60% 40% at 50% 30%,rgba(196,162,101,0.10) 0%,transparent 60%)}
+  background:radial-gradient(ellipse at 30% 50%,rgba(99,102,241,0.15) 0%,transparent 50%),
+       radial-gradient(ellipse at 80% 20%,rgba(139,92,246,0.1) 0%,transparent 40%);
+}
 .cta h2{color:#fff;position:relative}
 .cta p{color:rgba(255,255,255,0.5);margin-bottom:2rem;position:relative}
 .cta-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;position:relative}
-.btn{
-  display:inline-flex;align-items:center;gap:.4rem;padding:.85rem 2rem;
-  background:var(--gold);color:var(--crimson-deep);text-decoration:none;
-  border-radius:50px;font-weight:700;font-size:.88rem;transition:all var(--t)}
-.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.3)}
-.btn-o{
-  background:transparent;color:var(--gold-light);border:1px solid rgba(255,255,255,0.2)}
-.btn-o:hover{background:rgba(255,255,255,0.06);color:#fff}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.85rem 2rem;background:var(--primary);color:#fff;text-decoration:none;border-radius:12px;font-weight:600;font-size:.88rem;transition:all var(--t)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(15,10,42,0.25)}
+.btn-o{background:transparent;color:var(--primary);border:1px solid var(--border)}
+.btn-o:hover{background:var(--primary);color:#fff}
 
 /* ── Footer ── */
-footer{
-  background:var(--crimson-deep);color:rgba(255,255,255,0.4);
-  text-align:center;padding:3rem 2rem}
+footer{background:var(--primary);color:rgba(255,255,255,0.45);text-align:center;padding:3rem 2rem}
 footer .brand{display:inline-block;font-weight:800;font-size:1.1rem;color:#fff;margin-bottom:.4rem}
 footer p{font-size:.8rem}
 footer .div{width:36px;height:2px;background:rgba(255,255,255,0.1);margin:1rem auto;border-radius:1px}
@@ -192,7 +158,6 @@ footer .div{width:36px;height:2px;background:rgba(255,255,255,0.1);margin:1rem a
 .lb.on{display:flex;align-items:center;justify-content:center}
 .lb img{max-width:95vw;max-height:95vh;border-radius:6px}
 
-/* ── Responsive ── */
 @media(max-width:768px){
   .qstats{grid-template-columns:repeat(2,1fr)}
   .hero-meta{gap:1.5rem}
@@ -246,16 +211,40 @@ footer .div{width:36px;height:2px;background:rgba(255,255,255,0.1);margin:1rem a
   <h2>我在项目中的角色</h2>
   <p class="s-desc">从最早期的现场测量到最终验收销项，承担了设计师、技术负责人、项目协调者三重角色。</p>
   <div class="roles">
-    <div class="role"><span class="icon">🎨</span><h3>方案设计</h3><p>文化叙事策划、空间布局、SketchUp 建模 + Enscape 实时渲染，多轮迭代至定稿。</p></div>
-    <div class="role"><span class="icon">📐</span><h3>施工图深化</h3><p>平面/立面/电气/外墙钢结构/不锈钢深化，覆盖精装土建钢构电气全专业。</p></div>
-    <div class="role"><span class="icon">🖥️</span><h3>多媒体交互</h3><p>12 类交互设计：酒瓶造型屏、生肖屏、制酒流程互动游戏、透明触摸屏、闻香体验。</p></div>
-    <div class="role"><span class="icon">💰</span><h3>商务报价</h3><p>完整报价清单（成本核算+材料报价+人工），参与商务谈判与合同拟定。</p></div>
-    <div class="role"><span class="icon">🏗️</span><h3>现场管理</h3><p>放线到验收全程跟进施工质量，输出周报、施工日志、销项清单、整改汇总。</p></div>
-    <div class="role"><span class="icon">✍️</span><h3>文化编撰</h3><p>体验馆解说词、展示文本、美酒地图等文化体系，将茅台文化转化为空间叙事。</p></div>
+    <div class="role">
+      <span class="icon">🎨</span><h3>方案设计</h3>
+      <p>文化叙事策划、空间布局、SketchUp 建模 + Enscape 实时渲染，多轮迭代至定稿。</p>
+      <div class="tag-row"><span class="tag">文化叙事</span><span class="tag">空间布局</span><span class="tag">SketchUp</span></div>
+    </div>
+    <div class="role">
+      <span class="icon">📐</span><h3>施工图深化</h3>
+      <p>平面/立面/电气/外墙钢结构/不锈钢深化，覆盖精装土建钢构电气全专业。</p>
+      <div class="tag-row"><span class="tag">CAD施工图</span><span class="tag">钢结构</span><span class="tag">电气</span></div>
+    </div>
+    <div class="role">
+      <span class="icon">🖥️</span><h3>多媒体交互</h3>
+      <p>12 类交互设计：酒瓶造型屏、生肖屏、制酒流程互动游戏、透明触摸屏、闻香体验。</p>
+      <div class="tag-row"><span class="tag">UI设计</span><span class="tag">互动游戏</span><span class="tag">触摸屏</span></div>
+    </div>
+    <div class="role">
+      <span class="icon">💰</span><h3>商务报价</h3>
+      <p>完整报价清单（成本核算+材料报价+人工），参与商务谈判与合同拟定。</p>
+      <div class="tag-row"><span class="tag">报价清单</span><span class="tag">合同拟定</span><span class="tag">成本核算</span></div>
+    </div>
+    <div class="role">
+      <span class="icon">🏗️</span><h3>现场管理</h3>
+      <p>放线到验收全程跟进施工质量，输出周报、日志、销项清单、整改汇总。</p>
+      <div class="tag-row"><span class="tag">施工跟进</span><span class="tag">质量管控</span><span class="tag">验收销项</span></div>
+    </div>
+    <div class="role">
+      <span class="icon">✍️</span><h3>文化编撰</h3>
+      <p>体验馆解说词、展示文本、美酒地图等文化体系，将茅台文化转化为空间叙事。</p>
+      <div class="tag-row"><span class="tag">解说词</span><span class="tag">展示文本</span><span class="tag">文化策划</span></div>
+    </div>
   </div>
 </section>
 
-<!-- ═══ 时间线（图前面） ═══ -->
+<!-- ═══ 时间线 ═══ -->
 <section>
   <div class="s-label">Timeline</div>
   <h2>项目推进时间线</h2>
@@ -276,8 +265,7 @@ footer .div{width:36px;height:2px;background:rgba(255,255,255,0.1);margin:1rem a
   <h2>原始现场 & 施工过程</h2>
   <p class="s-desc">从毛坯状态开始，每一处结构改造和施工节点都有完整记录。</p>
   <div class="poster-block">
-    <img src="../../images/邯郸茅台文化体验馆/poster_01_original.jpg"
-         alt="原始现场与施工过程" onclick="openLB(this.src)">
+    <img src="../../images/邯郸茅台文化体验馆/poster_01_original.jpg" alt="原始现场与施工过程" onclick="openLB(this.src)">
     <div class="cap">▲ 原始场地测量 & 施工过程记录</div>
   </div>
 </section>
@@ -288,8 +276,7 @@ footer .div{width:36px;height:2px;background:rgba(255,255,255,0.1);margin:1rem a
   <h2>效果图方案</h2>
   <p class="s-desc">SketchUp 建模 + Enscape 实时渲染，多轮迭代至客户确认定稿。</p>
   <div class="poster-block">
-    <img src="../../images/邯郸茅台文化体验馆/poster_02_render.jpg"
-         alt="效果图方案" onclick="openLB(this.src)">
+    <img src="../../images/邯郸茅台文化体验馆/poster_02_render.jpg" alt="效果图方案" onclick="openLB(this.src)">
     <div class="cap">▲ 前厅 / 文化展示区 / 品鉴区 效果图方案</div>
   </div>
 </section>
@@ -300,8 +287,7 @@ footer .div{width:36px;height:2px;background:rgba(255,255,255,0.1);margin:1rem a
   <h2>落成实景</h2>
   <p class="s-desc">设计方案的最终呈现。高还原度的背后是持续的施工跟进与现场调整。</p>
   <div class="poster-block">
-    <img src="../../images/邯郸茅台文化体验馆/poster_03_final.jpg"
-         alt="落成实景" onclick="openLB(this.src)">
+    <img src="../../images/邯郸茅台文化体验馆/poster_03_final.jpg" alt="落成实景" onclick="openLB(this.src)">
     <div class="cap">▲ 完工现场实景拍摄</div>
   </div>
 </section>
