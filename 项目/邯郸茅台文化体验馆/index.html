@@ -3,87 +3,521 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>邯郸·茅台文化体验馆 — 项目详情</title>
-<link rel="stylesheet" href="../shared.css">
+<title>邯郸·茅台文化体验馆 — 罗凌成作品</title>
+<meta name="description" content="邯郸乐园商贸·茅台文化体验馆全流程操盘，从文化叙事到施工落地，2年+持续跟进。">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* 绛纱配色体系 */
+  --crimson:       #7A1628;
+  --crimson-dark:  #5C0F1C;
+  --crimson-deep:  #3D0A13;
+  --crimson-light: #A84452;
+  --crimson-soft:  #F2E0E3;
+  --gold:          #C4A265;
+  --gold-light:    #DBC89B;
+  --gold-soft:     #F7F1E5;
+  --bg:            #FBF9F6;
+  --card:          #FFFFFF;
+  --text:          #1C1C1C;
+  --text-secondary:#5C5C5C;
+  --text-muted:    #999999;
+  --border:        rgba(0,0,0,0.06);
+  --shadow-sm:     0 1px 3px rgba(0,0,0,0.04);
+  --shadow-md:     0 4px 20px rgba(0,0,0,0.06);
+  --shadow-lg:     0 20px 60px rgba(0,0,0,0.08);
+  --radius:        16px;
+  --radius-sm:     10px;
+  --transition:    0.35s cubic-bezier(0.4,0,0.2,1);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Inter','Noto Sans SC',sans-serif;
+  background:var(--bg); color:var(--text);
+  line-height:1.75; overflow-x:hidden;
+}
+
+/* ── Back Button ── */
+.back-btn {
+  position:fixed; top:1.2rem; left:1.2rem; z-index:1000;
+  background:rgba(255,255,255,0.92); backdrop-filter:blur(12px);
+  border:1px solid var(--border); padding:0.7rem 1.4rem;
+  border-radius:50px; text-decoration:none;
+  color:var(--text); font-weight:600; font-size:0.88rem;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+  transition:all var(--transition);
+  display:inline-flex; align-items:center; gap:0.4rem;
+}
+.back-btn:hover { transform:translateY(-2px); color:var(--crimson); box-shadow:0 4px 18px rgba(0,0,0,0.1); }
+
+/* ── Hero ── */
+.hero {
+  min-height:100vh; display:flex; align-items:center; justify-content:center;
+  text-align:center; padding:8rem 2rem 5rem;
+  background:linear-gradient(170deg, var(--crimson-deep) 0%, var(--crimson-dark) 30%, var(--crimson) 70%, var(--crimson-light) 100%);
+  position:relative; overflow:hidden;
+}
+.hero::before {
+  content:''; position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 70% 50% at 20% 30%, rgba(196,162,101,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 80% 70%, rgba(196,162,101,0.10) 0%, transparent 50%);
+}
+.hero::after {
+  content:''; position:absolute; inset:0;
+  background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.hero-content { position:relative; z-index:1; max-width:800px; }
+.hero-badge {
+  display:inline-block; background:rgba(255,255,255,0.1);
+  color:var(--gold-light); padding:0.5rem 1.6rem;
+  border-radius:50px; font-size:0.85rem; font-weight:600;
+  margin-bottom:2rem; border:1px solid rgba(255,255,255,0.15);
+  letter-spacing:1px;
+}
+.hero h1 {
+  font-family:'Noto Serif SC','Noto Sans SC',serif;
+  font-size:clamp(2.6rem,6vw,4.5rem); font-weight:900;
+  color:#fff; line-height:1.15; margin-bottom:1.2rem;
+  letter-spacing:-1px;
+}
+.hero h1 em {
+  font-style:normal;
+  background:linear-gradient(135deg, #E8D5A3, #C4A265);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero .subtitle {
+  font-size:clamp(1rem,2vw,1.2rem); color:rgba(255,255,255,0.6);
+  max-width:520px; margin:0 auto 3rem; line-height:1.8;
+}
+.hero-meta { display:flex; justify-content:center; gap:3rem; flex-wrap:wrap; }
+.hero-meta-item { text-align:center; }
+.hero-meta-item .value {
+  font-size:clamp(2rem,4vw,2.8rem); font-weight:800; color:#fff;
+  display:block; line-height:1; font-family:'Inter',sans-serif;
+}
+.hero-meta-item .value small { font-size:1.2rem; color:var(--gold); }
+.hero-meta-item .label {
+  font-size:0.78rem; color:rgba(255,255,255,0.4); margin-top:0.5rem;
+  font-weight:500; text-transform:uppercase; letter-spacing:1.5px;
+}
+
+/* ── Sections ── */
+section { padding:5rem 2rem; max-width:1100px; margin:0 auto; }
+.section-label {
+  font-size:0.72rem; font-weight:700; text-transform:uppercase;
+  letter-spacing:3px; color:var(--crimson); margin-bottom:0.5rem;
+}
+section h2 {
+  font-family:'Noto Serif SC',serif;
+  font-size:clamp(1.8rem,3.5vw,2.4rem); font-weight:700;
+  color:var(--crimson-dark); margin-bottom:0.8rem; letter-spacing:-0.5px;
+}
+.section-desc {
+  font-size:1.05rem; color:var(--text-secondary);
+  max-width:650px; margin-bottom:2.5rem; line-height:1.8;
+}
+
+/* ── Stat Cards ── */
+.stats-row { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-bottom:3rem; }
+.stat-card {
+  background:var(--card); border-radius:var(--radius);
+  padding:1.8rem 1.2rem; text-align:center;
+  border:1px solid var(--border); transition:all var(--transition);
+}
+.stat-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-md); }
+.stat-card .num {
+  font-size:2rem; font-weight:800; color:var(--crimson);
+  display:block; line-height:1.1; font-family:'Inter',sans-serif;
+}
+.stat-card .num small { font-size:1rem; color:var(--crimson-light); }
+.stat-card .lbl { font-size:0.82rem; color:var(--text-muted); margin-top:0.4rem; }
+
+/* ── Role Cards ── */
+.role-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.2rem; }
+.role-card {
+  background:var(--card); border-radius:var(--radius);
+  padding:2rem 1.5rem; border:1px solid var(--border);
+  border-top:3px solid var(--crimson);
+  transition:all var(--transition);
+}
+.role-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+.role-card .icon { font-size:1.8rem; margin-bottom:1rem; display:block; }
+.role-card h3 { font-size:1.05rem; font-weight:700; color:var(--crimson-dark); margin-bottom:0.6rem; }
+.role-card p { color:var(--text-secondary); font-size:0.9rem; line-height:1.65; }
+
+/* ── Collage Images ── */
+.collage-block { margin-bottom:3rem; }
+.collage-block img {
+  width:100%; height:auto; display:block;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-lg);
+  border:1px solid var(--border);
+}
+.collage-block .caption {
+  text-align:center; margin-top:0.8rem;
+  font-size:0.85rem; color:var(--text-muted);
+}
+
+/* ── Timeline ── */
+.timeline { position:relative; padding-left:2rem; margin-top:2rem; }
+.timeline::before {
+  content:''; position:absolute; left:0; top:8px; bottom:8px;
+  width:2px; background:linear-gradient(180deg,var(--crimson),var(--crimson-light),var(--crimson-soft));
+}
+.timeline-item { position:relative; margin-bottom:2.2rem; padding-left:2.2rem; }
+.timeline-item::before {
+  content:''; position:absolute; left:-2rem; top:8px;
+  width:12px; height:12px; background:var(--card);
+  border:2.5px solid var(--crimson); border-radius:50%;
+}
+.timeline-item:first-child::before { background:var(--crimson); }
+.timeline-item .dot-major::before { background:var(--crimson); }
+.year-badge {
+  display:inline-block; background:var(--crimson); color:#fff;
+  padding:0.3rem 1rem; border-radius:6px; font-size:0.78rem;
+  font-weight:700; margin-bottom:0.6rem; letter-spacing:0.5px;
+}
+.timeline-item h3 { font-size:1rem; font-weight:700; color:var(--crimson-dark); margin-bottom:0.3rem; }
+.timeline-item p { color:var(--text-secondary); font-size:0.9rem; }
+
+/* ── Deliverables Grid ── */
+.deliverables-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1rem; }
+.deliverable-item {
+  background:var(--card); border-radius:var(--radius-sm);
+  padding:1.8rem 1.2rem; text-align:center;
+  border:1px solid var(--border); transition:all var(--transition);
+}
+.deliverable-item:hover { transform:translateY(-3px); box-shadow:var(--shadow-md); border-color:var(--crimson-soft); }
+.deliverable-item .icon { font-size:2rem; margin-bottom:0.6rem; display:block; }
+.deliverable-item h4 { font-size:0.92rem; font-weight:700; color:var(--crimson-dark); margin-bottom:0.3rem; }
+.deliverable-item p { font-size:0.78rem; color:var(--text-muted); line-height:1.5; }
+
+/* ── CTA Section ── */
+.cta-section {
+  text-align:center; padding:4rem 2rem;
+  background:linear-gradient(170deg, var(--crimson-deep), var(--crimson-dark));
+  border-radius:var(--radius); margin:2rem auto; max-width:1100px;
+  position:relative; overflow:hidden;
+}
+.cta-section::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse 60% 50% at 50% 0%, rgba(196,162,101,0.12) 0%, transparent 60%);
+}
+.cta-section h2 { color:#fff; position:relative; }
+.cta-section p { color:rgba(255,255,255,0.55); margin-bottom:2rem; position:relative; }
+.cta-buttons { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; position:relative; }
+.btn {
+  display:inline-flex; align-items:center; gap:0.5rem;
+  padding:0.9rem 2.2rem; background:var(--gold);
+  color:var(--crimson-deep); text-decoration:none;
+  border-radius:50px; font-weight:700; font-size:0.92rem;
+  transition:all var(--transition); letter-spacing:0.5px;
+}
+.btn:hover { transform:translateY(-2px); box-shadow:0 8px 25px rgba(0,0,0,0.25); }
+.btn-outline {
+  background:transparent; color:var(--gold-light);
+  border:1px solid rgba(255,255,255,0.25);
+}
+.btn-outline:hover { background:rgba(255,255,255,0.08); color:#fff; }
+
+/* ── Footer ── */
+footer {
+  background:var(--crimson-deep); color:rgba(255,255,255,0.45);
+  text-align:center; padding:3rem 2rem;
+}
+footer .brand { display:inline-block; font-weight:800; font-size:1.1rem; color:#fff; margin-bottom:0.5rem; }
+footer p { font-size:0.82rem; }
+footer .divider { width:40px; height:2px; background:rgba(255,255,255,0.1); margin:1.2rem auto; border-radius:1px; }
+
+/* ── Image Lightbox ── */
+.lightbox { display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.92); cursor:zoom-out; }
+.lightbox.active { display:flex; align-items:center; justify-content:center; }
+.lightbox img { max-width:95vw; max-height:95vh; border-radius:4px; }
+
+/* ── Responsive ── */
+@media(max-width:768px){
+  .stats-row { grid-template-columns:repeat(2,1fr); }
+  .hero-meta { gap:1.5rem; }
+  section { padding:3.5rem 1.5rem; }
+  .timeline { padding-left:1.5rem; }
+  .timeline-item { padding-left:1.5rem; }
+  .timeline-item::before { left:-1.5rem; }
+}
+@media(max-width:480px){
+  .stats-row { grid-template-columns:1fr 1fr; gap:0.6rem; }
+  .stat-card { padding:1.2rem 0.8rem; }
+  .stat-card .num { font-size:1.5rem; }
+  .hero { padding:7rem 1rem 3rem; min-height:90vh; }
+  .cta-buttons { flex-direction:column; align-items:center; }
+  .cta-section { margin:1rem; border-radius:var(--radius-sm); }
+}
+</style>
 </head>
 <body>
-<a href="../../index_with_images.html" class="back-btn">← 返回作品集</a>
 
+<!-- Back -->
+<a href="../../index.html" class="back-btn">← 返回作品集</a>
+
+<!-- Hero -->
 <div class="hero">
   <div class="hero-content">
-    <h1>邯郸·茅台文化体验馆</h1>
-    <p class="subtitle">全流程操盘 · 从文化叙事到落地交付</p>
+    <div class="hero-badge">酒类文化体验空间 · 全流程操盘</div>
+    <h1>邯郸<br><em>茅台文化体验馆</em></h1>
+    <p class="subtitle">从文化叙事策划到施工现场落地，从前期提案到多媒体交互设计，全流程操盘，持续跟进 2 年+。</p>
     <div class="hero-meta">
-            <div class="hero-meta-item"><span class="value">1.8GB</span><span class="label">产出文档</span></div>
-      <div class="hero-meta-item"><span class="value">2024-2026</span><span class="label">项目周期</span></div>
-      <div class="hero-meta-item"><span class="value">2年+</span><span class="label">持续跟进</span></div>
+      <div class="hero-meta-item">
+        <span class="value">2<small>年+</small></span>
+        <span class="label">持续跟进</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="value">1.8<small>GB</small></span>
+        <span class="label">产出文档</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="value">12<small>类</small></span>
+        <span class="label">多媒体交互</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="value">全流程</span>
+        <span class="label">操盘模式</span>
+      </div>
     </div>
   </div>
 </div>
 
+<!-- 项目速览 -->
 <section>
-  <div class="section-label">Overview</div>
-  <h2>项目概述</h2>
-  <p class="section-desc">邯郸乐园商贸·茅台文化体验馆，全流程操盘文化体验空间。从文化叙事策划、施工图深化、3D 建模、多媒体交互设计到报价清单编制、现场管理全程覆盖，产出 1.8GB 申报文本，项目持续推进 2 年+。</p>
-  <div class="overview-grid">
-    <div class="overview-card"><h3>🎨 文化策划</h3><p>产出 1.8GB 申报文本，包含文化叙事、展示文本、美酒地图等完整文化内容体系。</p></div>
-    <div class="overview-card"><h3>📐 施工图深化</h3><p>平面图、立面图、电气图、外墙钢结构详图等全套施工图，覆盖精装/土建/钢结构/电气。</p></div>
-    <div class="overview-card"><h3>💻 3D 建模 & 渲染</h3><p>SketchUp 建模 + Enscape 实时渲染，输出高质量效果图供客户审核。</p></div>
-    <div class="overview-card"><h3>🖥️ 多媒体交互</h3><p>设计酒瓶造型屏、生肖屏、制酒流程互动游戏、透明触摸屏等多媒体交互方案。</p></div>
-    <div class="overview-card"><h3>💰 报价清单</h3><p>编制完整报价清单，含成本核算、材料报价、人工费用等明细。</p></div>
-    <div class="overview-card"><h3>🏗️ 现场管理</h3><p>从放线到验收全程跟进施工质量，输出周报、施工日志、整改汇总等管理文档。</p></div>
+  <div class="section-label">Key Facts</div>
+  <h2>项目速览</h2>
+  <div class="stats-row">
+    <div class="stat-card">
+      <span class="num">2024<small>→2026</small></span>
+      <span class="lbl">项目周期</span>
+    </div>
+    <div class="stat-card">
+      <span class="num">邯郸</span>
+      <span class="lbl">项目地点</span>
+    </div>
+    <div class="stat-card">
+      <span class="num">全案</span>
+      <span class="lbl">服务范围</span>
+    </div>
+    <div class="stat-card">
+      <span class="num">1.8<small>GB</small></span>
+      <span class="lbl">交付文档量</span>
+    </div>
   </div>
 </section>
 
+<!-- 我的角色 -->
+<section>
+  <div class="section-label">My Role</div>
+  <h2>我在项目中的角色</h2>
+  <p class="section-desc">这不是一个"只画图"的项目。从最早期的现场测量到最终验收销项，我承担了设计师、技术负责人、项目协调者三重角色。</p>
+  <div class="role-grid">
+    <div class="role-card">
+      <span class="icon">🎨</span>
+      <h3>方案设计</h3>
+      <p>文化叙事策划、空间布局方案、SketchUp 建模 + Enscape 实时渲染，多轮方案迭代至客户定稿。</p>
+    </div>
+    <div class="role-card">
+      <span class="icon">📐</span>
+      <h3>施工图深化</h3>
+      <p>平面图、立面图、电气图、外立面钢结构详图、不锈钢深化图纸，覆盖精装/土建/钢结构/电气全专业。</p>
+    </div>
+    <div class="role-card">
+      <span class="icon">🖥️</span>
+      <h3>多媒体交互设计</h3>
+      <p>设计 12 类多媒体交互内容：酒瓶造型屏、生肖屏、制酒流程互动游戏、透明触摸屏、闻香体验等。</p>
+    </div>
+    <div class="role-card">
+      <span class="icon">💰</span>
+      <h3>商务报价</h3>
+      <p>编制完整报价清单（成本核算 + 材料报价 + 人工费用），参与商务谈判与合同拟定。</p>
+    </div>
+    <div class="role-card">
+      <span class="icon">🏗️</span>
+      <h3>现场管理</h3>
+      <p>从放线到验收全程跟进施工质量，输出周报、施工日志、问题销项清单、整改汇总等管理文档。</p>
+    </div>
+    <div class="role-card">
+      <span class="icon">✍️</span>
+      <h3>文化内容编撰</h3>
+      <p>编写体验馆解说词、展示文本、美酒地图等文化内容体系，将茅台文化转化为空间叙事。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 空间演变 -->
+<section>
+  <div class="section-label">Process</div>
+  <h2>空间演变</h2>
+  <p class="section-desc">从毛坯空间到文化体验馆的完整蜕变。三张图，三个时间节点，一个空间的生长轨迹。</p>
+  <div class="collage-block">
+    <img src="../../images/邯郸茅台文化体验馆/collage_01_evolution.jpg"
+         alt="前厅空间演变：原始现场→效果图→落成实景"
+         onclick="openLightbox(this.src)" style="cursor:zoom-in;">
+    <div class="caption">▲ 前厅空间演变：原始现场（2024.01）→ 效果图方案（2025.03）→ 落成实景（2026）</div>
+  </div>
+</section>
+
+<!-- 效果图vs落地 -->
+<section>
+  <h2>方案对比：效果图 → 落地</h2>
+  <p class="section-desc">设计方案与最终落地的对比。高还原度的背后是持续的施工跟进与现场调整。</p>
+  <div class="collage-block">
+    <img src="../../images/邯郸茅台文化体验馆/collage_02_compare.jpg"
+         alt="效果图与落地实景对比" onclick="openLightbox(this.src)" style="cursor:zoom-in;">
+    <div class="caption">▲ 效果图方案（2025）vs 落地实景（2026）— 高还原度落成</div>
+  </div>
+</section>
+
+<!-- 施工过程 -->
+<section>
+  <h2>施工过程记录</h2>
+  <p class="section-desc">从原始场地测量到结构改造到最终完工，全程现场跟进的关键节点记录。</p>
+  <div class="collage-block">
+    <img src="../../images/邯郸茅台文化体验馆/collage_03_process.jpg"
+         alt="施工过程记录" onclick="openLightbox(this.src)" style="cursor:zoom-in;">
+    <div class="caption">▲ 施工全流程记录：原始场地 → 结构改造 → 方案效果 → 完工实景</div>
+  </div>
+</section>
+
+<!-- 项目时间线 -->
 <section>
   <div class="section-label">Timeline</div>
-  <h2>项目时间线</h2>
+  <h2>项目推进时间线</h2>
   <div class="timeline">
-    <div class="timeline-item"><span class="year-badge">2024.01.04</span><h3>现场测量</h3><p>完成原始场地测量，获取精确尺寸数据，为方案设计提供基础。</p></div>
-    <div class="timeline-item"><span class="year-badge">2024.07</span><h3>报价清单编制</h3><p>完成整体报价清单（0724 版），含成本核算和详细报价明细。</p></div>
-    <div class="timeline-item"><span class="year-badge">2025.01</span><h3>展示文本定稿</h3><p>完成文化体验馆展示文本，包含文化叙事和展示内容。</p></div>
-    <div class="timeline-item"><span class="year-badge">2025.03</span><h3>效果图渲染完成</h3><p>Enscape 实时渲染输出高质量效果图，供客户审核确认。</p></div>
-    <div class="timeline-item"><span class="year-badge">2025.06-09</span><h3>施工图深化</h3><p>完成平面图、立面图、电气图、外墙钢结构详图等全套施工图。</p></div>
-    <div class="timeline-item"><span class="year-badge">2025.10-12</span><h3>方案审核 & 施工深化</h3><p>多轮方案审核，外立面不锈钢深化图纸完成，现场管理周报持续输出。</p></div>
-    <div class="timeline-item"><span class="year-badge">2026.03-06</span><h3>多媒体交互 & 验收</h3><p>完成多媒体交互 UI 设计，现场施工、问题销项、整改汇总完成。</p></div>
+    <div class="timeline-item">
+      <span class="year-badge">2024.01</span>
+      <h3>现场原始测量</h3>
+      <p>完成原始场地测量，获取精确尺寸数据，为方案设计提供准确基础。</p>
+    </div>
+    <div class="timeline-item">
+      <span class="year-badge">2024.07</span>
+      <h3>报价清单编制</h3>
+      <p>完成整体报价清单（0724版），含成本核算、材料报价、人工费用等详细明细。</p>
+    </div>
+    <div class="timeline-item">
+      <span class="year-badge">2025.01</span>
+      <h3>文化展示文本定稿</h3>
+      <p>完成体验馆展示文本、解说词、美酒地图等文化内容体系，输出 1.8GB 申报文本。</p>
+    </div>
+    <div class="timeline-item">
+      <span class="year-badge">2025.03</span>
+      <h3>效果图渲染 & 方案定稿</h3>
+      <p>SketchUp 建模 + Enscape 实时渲染输出高质量效果图，客户审核确认方案。</p>
+    </div>
+    <div class="timeline-item">
+      <span class="year-badge">2025.06–09</span>
+      <h3>施工图深化</h3>
+      <p>完成平面图、立面图、电气图、外墙钢结构详图等全套施工图。</p>
+    </div>
+    <div class="timeline-item">
+      <span class="year-badge">2025.10–12</span>
+      <h3>不锈钢深化 & 现场施工</h3>
+      <p>外立面不锈钢深化图纸完成，设计监理周报持续输出，现场施工跟进。</p>
+    </div>
+    <div class="timeline-item">
+      <span class="year-badge">2026.03–06</span>
+      <h3>多媒体 UI & 验收销项</h3>
+      <p>完成 12 类多媒体交互 UI 设计，现场施工问题销项、集团验收整改全部完成。</p>
+    </div>
   </div>
 </section>
 
-<section>
-  <div class="section-label">Site Photos</div>
-  <h2>现场施工照片</h2>
-  <p class="section-desc">2024 年 1 月现场原始测量记录，项目起点的第一手影像资料。</p>
-  <div class="gallery">
-    <div class="gallery-item"><img src="../../images/邯郸茅台文化体验馆/IMG_1335.JPG" alt="现场 01"><div class="caption">现场原始测量 2024.01.04</div></div>
-    <div class="gallery-item"><img src="../../images/邯郸茅台文化体验馆/IMG_1336.JPG" alt="现场 02"><div class="caption">现场原始测量 2024.01.04</div></div>
-    <div class="gallery-item"><img src="../../images/邯郸茅台文化体验馆/IMG_2470.JPG" alt="现场 03"><div class="caption">现场施工记录</div></div>
-    <div class="gallery-item"><img src="../../images/邯郸茅台文化体验馆/IMG_2483.JPG" alt="现场 04"><div class="caption">现场施工记录</div></div>
-    <div class="gallery-item"><img src="../../images/邯郸茅台文化体验馆/IMG_2484.JPG" alt="现场 05"><div class="caption">现场施工记录</div></div>
-    <div class="gallery-item"><img src="../../images/邯郸茅台文化体验馆/IMG_2489.JPG" alt="现场 06"><div class="caption">现场施工记录</div></div>
-    <div class="gallery-item"><img src="../../images/邯郸茅台文化体验馆/IMG_2519.JPG" alt="现场 07"><div class="caption">现场施工记录</div></div>
-    <div class="gallery-item"><img src="../../images/邯郸茅台文化体验馆/IMG_2520.JPG" alt="现场 08"><div class="caption">现场施工记录</div></div>
-  </div>
-</section>
-
+<!-- 交付物 -->
 <section>
   <div class="section-label">Deliverables</div>
   <h2>项目交付物</h2>
   <div class="deliverables-grid">
-    <div class="deliverable-item"><div class="icon">📄</div><h4>文化叙事文本</h4><p>展示文本 / 美酒地图 / 文化编撰（1.8GB）</p></div>
-    <div class="deliverable-item"><div class="icon">📐</div><h4>施工图全套</h4><p>平面/立面/电气/钢结构详图</p></div>
-    <div class="deliverable-item"><div class="icon">🖼️</div><h4>效果图渲染</h4><p>Enscape 实时渲染多版本</p></div>
-    <div class="deliverable-item"><div class="icon">💻</div><h4>3D 模型</h4><p>SketchUp 模型（前厅、外立面）</p></div>
-    <div class="deliverable-item"><div class="icon">🖥️</div><h4>多媒体 UI</h4><p>酒瓶屏/生肖屏/制酒流程/透明屏</p></div>
-    <div class="deliverable-item"><div class="icon">💰</div><h4>报价清单</h4><p>成本核算 + 详细报价明细</p></div>
-    <div class="deliverable-item"><div class="icon">📝</div><h4>管理文档</h4><p>周报/施工日志/整改汇总</p></div>
-    <div class="deliverable-item"><div class="icon">📸</div><h4>现场记录</h4><p>施工照片/验收整改记录</p></div>
+    <div class="deliverable-item">
+      <span class="icon">📄</span>
+      <h4>文化叙事文本</h4>
+      <p>展示文本 / 美酒地图 / 解说词（1.8GB）</p>
+    </div>
+    <div class="deliverable-item">
+      <span class="icon">📐</span>
+      <h4>施工图全套</h4>
+      <p>平面 / 立面 / 电气 / 钢结构详图</p>
+    </div>
+    <div class="deliverable-item">
+      <span class="icon">🖼️</span>
+      <h4>效果图渲染</h4>
+      <p>Enscape 实时渲染多版本</p>
+    </div>
+    <div class="deliverable-item">
+      <span class="icon">💻</span>
+      <h4>3D 模型</h4>
+      <p>SketchUp 模型（前厅、外立面）</p>
+    </div>
+    <div class="deliverable-item">
+      <span class="icon">🖥️</span>
+      <h4>多媒体 UI</h4>
+      <p>12 类交互：酒瓶屏 / 生肖屏 / 透明屏…</p>
+    </div>
+    <div class="deliverable-item">
+      <span class="icon">💰</span>
+      <h4>报价清单</h4>
+      <p>成本核算 + 详细材料报价明细</p>
+    </div>
+    <div class="deliverable-item">
+      <span class="icon">📝</span>
+      <h4>管理文档</h4>
+      <p>周报 / 施工日志 / 整改汇总 / 销项清单</p>
+    </div>
+    <div class="deliverable-item">
+      <span class="icon">📸</span>
+      <h4>现场记录</h4>
+      <p>施工全程照片 / 验收记录</p>
+    </div>
   </div>
 </section>
 
+<!-- CTA -->
+<section>
+  <div class="cta-section">
+    <h2>想了解更多项目细节？</h2>
+    <p>欢迎联系我，探讨空间设计合作机会。</p>
+    <div class="cta-buttons">
+      <a href="mailto:494339602@qq.com" class="btn">📧 联系我</a>
+      <a href="../../index.html" class="btn btn-outline">← 返回作品集</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
 <footer>
   <div class="brand">MAX DESIGN</div>
   <p>© 2026 Max·Design Studio</p>
-  <p style="margin-top:0.5rem;">邯郸·茅台文化体验馆 — 全流程操盘项目详情</p>
+  <div class="divider"></div>
+  <p>邯郸·茅台文化体验馆 — 全流程操盘项目详情</p>
 </footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('active');
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('active');
+});
+// Auto close lightbox on scroll
+window.addEventListener('scroll', function() {
+  document.getElementById('lightbox').classList.remove('active');
+}, {passive:true});
+</script>
+
 </body>
 </html>
