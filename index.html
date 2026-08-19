@@ -108,7 +108,11 @@
         .timeline-item li strong { color:var(--primary); }
 
         /* === Projects === */
-        .projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:1.5rem; margin-top:2rem; }
+        .project-group { margin-top:3rem; }
+        .project-group-title { display:flex; align-items:center; gap:1rem; font-size:1.35rem; font-weight:800; color:var(--primary); letter-spacing:-0.5px; }
+        .project-group-title::after { content:''; flex:1; height:1px; background:var(--border); }
+        .project-group-title .gcount { font-size:0.78rem; font-weight:700; color:var(--accent); background:var(--accent-glow); padding:0.25rem 0.8rem; border-radius:50px; }
+        .projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:1.5rem; margin-top:1.5rem; }
         .project-card { background:var(--card); border-radius:var(--radius); overflow:hidden; border:1px solid var(--border); transition:all 0.4s ease; }
         .project-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
         .project-img { width:100%; height:220px; object-fit:cover; display:block; }
@@ -383,9 +387,13 @@
         <div>
             <div class="section-label">Projects</div>
             <h2>代表项目</h2>
-            <p class="section-desc">从大型文化体验馆到标准化门店，从高端住宅到企业展厅，覆盖多元业态。</p>
+            <p class="section-desc">从大型文化体验馆到标准化门店，从高端住宅到企业展厅，覆盖商业空间与家装住宅两大板块。</p>
         </div>
-                <div class="projects-grid">
+
+        <!-- 商业空间 -->
+        <div class="project-group">
+            <div class="project-group-title">商业空间 <span class="gcount">4</span></div>
+            <div class="projects-grid">
             <div class="project-card" onclick="window.open('项目/邯郸茅台文化体验馆/index.html','_blank')" style="cursor:pointer;">
                 <div class="project-img-wrap">
                     <img src="images/邯郸茅台文化体验馆/1.png" alt="邯郸茅台文化体验馆" class="project-img" onerror="this.style.opacity=0">
@@ -398,30 +406,6 @@
                     <p>全流程操盘茅台文化体验馆，从文化叙事、施工图到报价、现场管理全程覆盖，产出 1.8GB 申报文本。</p>
                 </div>
             </div>
-            <div class="project-card" onclick="window.open('项目/朗樾园/index.html','_blank')" style="cursor:pointer;">
-                <div class="project-img-wrap">
-                    <img src="images/朗樾园/1.jpg" alt="朗樾园" class="project-img" onerror="this.style.opacity=0">
-                <button class="detail-btn">➤ 查看详情</button>
-                </div>
-                <div class="project-header">
-                    <h3>朗樾园 · 茅台生活馆</h3>
-                </div>
-                <div class="project-body">
-                    <p>北京顺义高端住宅项目，含别墅精装、前花园景观、茅台生活馆空间设计，2024-2025 年持续推进。</p>
-                </div>
-            </div>
-            <div class="project-card" onclick="window.open('项目/麓湖C20/index.html','_blank')" style="cursor:pointer;">
-                <div class="project-img-wrap">
-                    <img src="images/麓湖C20/1.png" alt="麓湖C20" class="project-img" onerror="this.style.opacity=0">
-                <button class="detail-btn">➤ 查看详情</button>
-                </div>
-                <div class="project-header">
-                    <h3>麓湖 C20 · 万华</h3>
-                </div>
-                <div class="project-body">
-                    <p>成都麓湖生态城 C20 组团精装设计及公区设计，2021-2022 年跟进，涉及石材排版、材料下单等。</p>
-                </div>
-            </div>
             <div class="project-card" onclick="window.open('项目/茅台专卖店/index.html','_blank')" style="cursor:pointer;">
                 <div class="project-img-wrap">
                     <img src="images/茅台专卖店/1.png" alt="茅台专卖店" class="project-img" onerror="this.style.opacity=0">
@@ -432,18 +416,6 @@
                 </div>
                 <div class="project-body">
                     <p>2022 年北京及周边 46 家茅台专卖店标准化推进，建立统一设计模板与施工标准，效率提升 40%。</p>
-                </div>
-            </div>
-            <div class="project-card" onclick="window.open('项目/家装部分/index.html','_blank')" style="cursor:pointer;">
-                <div class="project-img-wrap">
-                    <img src="images/家装部分/xipai_4510.jpg" alt="家装部分" class="project-img" onerror="this.style.opacity=0">
-                <button class="detail-btn">➤ 查看详情</button>
-                </div>
-                <div class="project-header">
-                    <h3>家装部分 · 精装工程</h3>
-                </div>
-                <div class="project-body">
-                    <p>中铁西派城 C/D 块、花样年龙年国际 LOFT、麓湖 C20 样板间、朗樾园别墅，2019-2025 年住宅精装全流程。</p>
                 </div>
             </div>
             <div class="project-card" onclick="window.open('项目/茅友宴/index.html','_blank')" style="cursor:pointer;">
@@ -469,6 +441,50 @@
                 <div class="project-body">
                     <p>大型文化体验馆含夹层钢结构 + 机电预算；品高商贸高端品鉴包间效果图设计。多项目并行管理成果。</p>
                 </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- 家装住宅 -->
+        <div class="project-group">
+            <div class="project-group-title">家装住宅 <span class="gcount">3</span></div>
+            <div class="projects-grid">
+            <div class="project-card" onclick="window.open('项目/家装部分/index.html','_blank')" style="cursor:pointer;">
+                <div class="project-img-wrap">
+                    <img src="images/家装部分/xipai_4510.jpg" alt="家装部分" class="project-img" onerror="this.style.opacity=0">
+                <button class="detail-btn">➤ 查看详情</button>
+                </div>
+                <div class="project-header">
+                    <h3>家装部分 · 精装工程</h3>
+                </div>
+                <div class="project-body">
+                    <p>中铁西派城 C/D 块、花样年龙年国际 LOFT、麓湖 C20 样板间、朗樾园别墅，2019-2025 年住宅精装全流程。</p>
+                </div>
+            </div>
+            <div class="project-card" onclick="window.open('项目/朗樾园/index.html','_blank')" style="cursor:pointer;">
+                <div class="project-img-wrap">
+                    <img src="images/朗樾园/1.jpg" alt="朗樾园" class="project-img" onerror="this.style.opacity=0">
+                <button class="detail-btn">➤ 查看详情</button>
+                </div>
+                <div class="project-header">
+                    <h3>朗樾园 · 北京别墅</h3>
+                </div>
+                <div class="project-body">
+                    <p>北京顺义高端住宅项目，含别墅精装、前花园景观、茅台生活馆空间设计，2024-2025 年持续推进。</p>
+                </div>
+            </div>
+            <div class="project-card" onclick="window.open('项目/麓湖C20/index.html','_blank')" style="cursor:pointer;">
+                <div class="project-img-wrap">
+                    <img src="images/麓湖C20/1.png" alt="麓湖C20" class="project-img" onerror="this.style.opacity=0">
+                <button class="detail-btn">➤ 查看详情</button>
+                </div>
+                <div class="project-header">
+                    <h3>麓湖 C20 · 万华</h3>
+                </div>
+                <div class="project-body">
+                    <p>成都麓湖生态城 C20 组团精装设计及公区设计，2021-2022 年跟进，涉及石材排版、材料下单等。</p>
+                </div>
+            </div>
             </div>
         </div>
     </section>
