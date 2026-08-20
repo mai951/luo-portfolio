@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>山东·茅台文化体验馆 — 罗凌成作品</title>
+<meta name="description" content="山东·茅台文化体验馆全流程操盘，从现场测量到效果图方案与落地实景，体验空间完整落地。">
+<style>
+:root {
+  --primary: #0f0a2a;
+  --accent: #6366f1;
+  --accent-light: #818cf8;
+  --accent-glow: rgba(99,102,241,0.12);
+  --bg: #faf9f6;
+  --card: #ffffff;
+  --text: #1a1a2e;
+  --t2: #64748b;
+  --t3: #94a3b8;
+  --border: rgba(0,0,0,0.05);
+  --shadow: 0 4px 20px rgba(0,0,0,0.05);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.08);
+  --radius: 14px;
+  --t: 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'PingFang SC','Microsoft YaHei','Hiragino Sans GB',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.75}
+
+/* ── Back ── */
+.back-btn{
+  position:fixed;top:1rem;left:1rem;z-index:999;
+  background:rgba(255,255,255,0.9);backdrop-filter:blur(12px);
+  border:1px solid var(--border);padding:.65rem 1.3rem;
+  border-radius:50px;text-decoration:none;color:var(--text);
+  font-weight:600;font-size:.85rem;box-shadow:0 2px 10px rgba(0,0,0,0.05);
+  transition:all var(--t);display:inline-flex;align-items:center;gap:.35rem;
+}
+.back-btn:hover{transform:translateY(-2px);color:var(--accent)}
+
+/* ── Hero ── */
+.hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:8rem 2rem 5rem;position:relative;overflow:hidden;
+  background:var(--primary);
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(99,102,241,0.3) 0%,transparent 70%),
+       radial-gradient(ellipse 60% 40% at 80% 80%,rgba(139,92,246,0.15) 0%,transparent 60%);
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(rgba(255,255,255,0.06) 1px,transparent 1px);
+  background-size:44px 44px;
+}
+.hero-content{position:relative;z-index:1;max-width:800px}
+.hero-badge{
+  display:inline-block;background:rgba(99,102,241,0.15);color:var(--accent-light);
+  padding:.5rem 1.6rem;border-radius:50px;font-size:.82rem;font-weight:600;
+  margin-bottom:2rem;border:1px solid rgba(99,102,241,0.2);
+}
+.hero h1{
+  font-size:clamp(2.4rem,6vw,4.2rem);font-weight:900;color:#fff;line-height:1.15;
+  margin-bottom:1rem;letter-spacing:-1.5px;
+}
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(135deg,#c4b5fd,#818cf8,#6366f1);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero .sub{
+  font-size:clamp(.95rem,2vw,1.15rem);color:rgba(255,255,255,0.55);
+  max-width:500px;margin:0 auto 3rem;line-height:1.8;
+}
+.hero-meta{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap}
+.hero-meta-item{text-align:center}
+.hero-meta-item .v{
+  font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;color:#fff;display:block;line-height:1}
+.hero-meta-item .v small{font-size:1.1rem;color:var(--accent-light)}
+.hero-meta-item .l{
+  font-size:.72rem;color:rgba(255,255,255,0.4);margin-top:.4rem;
+  font-weight:500;text-transform:uppercase;letter-spacing:1.5px}
+
+/* ── Section ── */
+section{padding:5rem 2rem;max-width:1100px;margin:0 auto}
+.s-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--accent);margin-bottom:.4rem}
+section h2{font-size:clamp(1.7rem,3.5vw,2.3rem);font-weight:800;color:var(--primary);margin-bottom:.6rem;letter-spacing:-.5px}
+.s-desc{font-size:1.02rem;color:var(--t2);max-width:650px;margin-bottom:2.5rem;line-height:1.8}
+
+/* ── Quick Stats ── */
+.qstats{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin-bottom:2rem}
+.qs{background:var(--card);border-radius:var(--radius);padding:1.6rem 1rem;text-align:center;border:1px solid var(--border);transition:all var(--t)}
+.qs:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.qs .n{font-size:1.7rem;font-weight:800;color:var(--primary);display:block}
+.qs .n small{font-size:.9rem;color:var(--accent)}
+.qs .lb{font-size:.78rem;color:var(--t3);margin-top:.3rem}
+
+/* ── Role ── */
+.roles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.role{background:var(--card);border-radius:var(--radius);padding:1.8rem 1.4rem;border:1px solid var(--border);transition:all var(--t)}
+.role:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.role .icon{font-size:1.6rem;margin-bottom:.8rem;display:block}
+.role h3{font-size:1rem;font-weight:700;color:var(--primary);margin-bottom:.5rem}
+.role p{color:var(--t2);font-size:.88rem;line-height:1.65}
+.tag-row{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem}
+.tag{background:var(--bg);color:var(--t2);padding:.3rem .8rem;border-radius:6px;font-size:.72rem;font-weight:600;border:1px solid var(--border)}
+
+/* ── Timeline ── */
+.tl{position:relative;padding-left:2rem;margin-top:2rem}
+.tl::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--accent),var(--accent-light),transparent)}
+.tl-item{position:relative;margin-bottom:2rem;padding-left:2rem}
+.tl-item::before{content:'';position:absolute;left:-2rem;top:8px;width:12px;height:12px;background:var(--card);border:2.5px solid var(--accent);border-radius:50%}
+.tl-item:first-child::before{background:var(--accent)}
+.yr{display:inline-block;background:var(--accent);color:#fff;padding:.25rem .9rem;border-radius:5px;font-size:.75rem;font-weight:700;margin-bottom:.5rem}
+.tl-item h3{font-size:.95rem;font-weight:700;color:var(--primary);margin-bottom:.3rem}
+.tl-item p{color:var(--t2);font-size:.88rem}
+
+/* ── Photo Grid ── */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-bottom:2.5rem}
+.pgrid img{width:100%;height:auto;display:block;border-radius:var(--radius);box-shadow:var(--shadow-lg);border:1px solid var(--border);cursor:zoom-in}
+.pgrid .cap{text-align:center;margin-top:.7rem;font-size:.82rem;color:var(--t3);grid-column:1/-1}
+
+/* ── Deliverables ── */
+.dg{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:.8rem}
+.di{background:var(--card);border-radius:var(--radius);padding:1.6rem 1rem;text-align:center;border:1px solid var(--border);transition:all var(--t)}
+.di:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--accent-glow)}
+.di .icon{font-size:1.8rem;margin-bottom:.5rem;display:block}
+.di h4{font-size:.88rem;font-weight:700;color:var(--primary);margin-bottom:.2rem}
+.di p{font-size:.75rem;color:var(--t3);line-height:1.4}
+
+/* ── CTA ── */
+.cta{
+  text-align:center;padding:4rem 2rem;border-radius:var(--radius);
+  margin:2rem auto;max-width:1100px;position:relative;overflow:hidden;
+  background:var(--primary);
+}
+.cta::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 30% 50%,rgba(99,102,241,0.15) 0%,transparent 50%),
+       radial-gradient(ellipse at 80% 20%,rgba(139,92,246,0.1) 0%,transparent 40%);
+}
+.cta h2{color:#fff;position:relative}
+.cta p{color:rgba(255,255,255,0.5);margin-bottom:2rem;position:relative}
+.cta-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;position:relative}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.85rem 2rem;background:var(--primary);color:#fff;text-decoration:none;border-radius:12px;font-weight:600;font-size:.88rem;transition:all var(--t)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(15,10,42,0.25)}
+.btn-o{background:transparent;color:var(--primary);border:1px solid var(--border)}
+.btn-o:hover{background:var(--primary);color:#fff}
+
+/* ── Footer ── */
+footer{background:var(--primary);color:rgba(255,255,255,0.45);text-align:center;padding:3rem 2rem}
+footer .brand{display:inline-block;font-weight:800;font-size:1.1rem;color:#fff;margin-bottom:.4rem}
+footer p{font-size:.8rem}
+footer .div{width:36px;height:2px;background:rgba(255,255,255,0.1);margin:1rem auto;border-radius:1px}
+
+/* ── Lightbox ── */
+.lb{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.94);cursor:zoom-out}
+.lb.on{display:flex;align-items:center;justify-content:center}
+.lb img{max-width:95vw;max-height:95vh;border-radius:6px}
+
+@media(max-width:768px){
+  .qstats{grid-template-columns:repeat(2,1fr)}
+  .hero-meta{gap:1.5rem}
+  section{padding:3.5rem 1.5rem}
+  .tl{padding-left:1.5rem}.tl-item{padding-left:1.5rem}
+  .tl-item::before{left:-1.5rem}
+}
+@media(max-width:480px){
+  .qstats{grid-template-columns:1fr 1fr;gap:.5rem}
+  .qs{padding:1.2rem .7rem}.qs .n{font-size:1.3rem}
+  .hero{padding:7rem 1rem 3rem;min-height:90vh}
+  .cta-btns{flex-direction:column;align-items:center}
+  .cta{margin:1rem;border-radius:var(--radius)}
+}
+</style>
+</head>
+<body>
+
+<a href="../../index.html?v=20260820" class="back-btn">← 返回作品集</a>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">酒类文化体验空间 · 全流程操盘</div>
+    <h1>山东<br><em>茅台文化体验馆</em></h1>
+    <p class="sub">从现场原始测量到效果图方案、再到落成实景，体验空间设计全流程操盘，完整交付。</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><span class="v">2023<small>→2026</small></span><span class="l">项目周期</span></div>
+      <div class="hero-meta-item"><span class="v">4<small>套</small></span><span class="l">效果图方案</span></div>
+      <div class="hero-meta-item"><span class="v">4<small>处</small></span><span class="l">现场实景</span></div>
+      <div class="hero-meta-item"><span class="v">全流程</span><span class="l">操盘模式</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 项目速览 ═══ -->
+<section>
+  <div class="s-label">Key Facts</div>
+  <h2>项目速览</h2>
+  <div class="qstats">
+    <div class="qs"><span class="n">2023<small>→2026</small></span><span class="lb">项目周期</span></div>
+    <div class="qs"><span class="n">山东</span><span class="lb">项目地点</span></div>
+    <div class="qs"><span class="n">全案</span><span class="lb">服务范围</span></div>
+    <div class="qs"><span class="n">落地</span><span class="lb">项目状态</span></div>
+  </div>
+</section>
+
+<!-- ═══ 我的角色 ═══ -->
+<section>
+  <div class="s-label">My Role</div>
+  <h2>我在项目中的角色</h2>
+  <p class="s-desc">从现场测量到方案设计、再到落地实景，承担方案设计、效果图、落地跟进多重角色。</p>
+  <div class="roles">
+    <div class="role">
+      <span class="icon">📐</span><h3>现场测量</h3>
+      <p>对原始场地进行精确测量记录，为体验空间方案设计提供准确基础数据。</p>
+      <div class="tag-row"><span class="tag">原始测量</span><span class="tag">现场记录</span></div>
+    </div>
+    <div class="role">
+      <span class="icon">🎨</span><h3>方案设计</h3>
+      <p>体验空间整体方案设计，文化叙事与空间布局多轮迭代至定稿。</p>
+      <div class="tag-row"><span class="tag">文化叙事</span><span class="tag">空间布局</span><span class="tag">方案定稿</span></div>
+    </div>
+    <div class="role">
+      <span class="icon">🖼️</span><h3>效果图渲染</h3>
+      <p>SketchUp + Enscape 输出多视角高质量效果图，支撑方案汇报与确认。</p>
+      <div class="tag-row"><span class="tag">SketchUp</span><span class="tag">Enscape</span><span class="tag">多视角</span></div>
+    </div>
+    <div class="role">
+      <span class="icon">🏗️</span><h3>落地跟进</h3>
+      <p>设计方案现场实施跟进，空间细节落地还原，实景呈现设计方案。</p>
+      <div class="tag-row"><span class="tag">现场跟进</span><span class="tag">落地还原</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 时间线 ═══ -->
+<section>
+  <div class="s-label">Timeline</div>
+  <h2>项目推进时间线</h2>
+  <div class="tl">
+    <div class="tl-item"><span class="yr">2023.04</span><h3>现场原始测量</h3><p>完成原始场地精确测量与影像记录，获取空间基础数据。</p></div>
+    <div class="tl-item"><span class="yr">2025.07</span><h3>效果图渲染定稿</h3><p>SketchUp + Enscape 输出多视角效果图方案，客户审核确认。</p></div>
+    <div class="tl-item"><span class="yr">2026.03</span><h3>现场落地</h3><p>设计方案现场实施完成，实景呈现，落地记录归档。</p></div>
+  </div>
+</section>
+
+<!-- ═══ 原始现场 ═══ -->
+<section>
+  <div class="s-label">Phase 1</div>
+  <h2>原始现场 & 测量</h2>
+  <p class="s-desc">改造前的原始场地记录，从测量开始建立设计依据。</p>
+  <div class="pgrid">
+    <img src="../../images/山东茅台文化体验馆/过程及原始/IMG_20230404_140235.jpg" alt="原始现场测量 1" onclick="openLB(this.src)">
+    <img src="../../images/山东茅台文化体验馆/过程及原始/IMG_20230404_140648.jpg" alt="原始现场测量 2" onclick="openLB(this.src)">
+    <img src="../../images/山东茅台文化体验馆/过程及原始/IMG_20230404_140722.jpg" alt="原始现场测量 3" onclick="openLB(this.src)">
+    <img src="../../images/山东茅台文化体验馆/过程及原始/IMG_20230404_140729.jpg" alt="原始现场测量 4" onclick="openLB(this.src)">
+    <div class="cap">▲ 2023.04 现场原始测量记录</div>
+  </div>
+</section>
+
+<!-- ═══ 效果图 ═══ -->
+<section>
+  <div class="s-label">Phase 2</div>
+  <h2>效果图方案</h2>
+  <p class="s-desc">SketchUp + Enscape 渲染的多视角效果图方案，覆盖空间主要展示面。</p>
+  <div class="pgrid">
+    <img src="../../images/山东茅台文化体验馆/效果图/Enscape_2025-07-04-10-14-54.png" alt="效果图方案 1" onclick="openLB(this.src)">
+    <img src="../../images/山东茅台文化体验馆/效果图/Enscape_2025-07-04-10-36-38.png" alt="效果图方案 2" onclick="openLB(this.src)">
+    <img src="../../images/山东茅台文化体验馆/效果图/Enscape_2025-07-04-13-56-15.png" alt="效果图方案 3" onclick="openLB(this.src)">
+    <img src="../../images/山东茅台文化体验馆/效果图/Enscape_2025-07-04-18-44-25.png" alt="效果图方案 4" onclick="openLB(this.src)">
+    <div class="cap">▲ 体验空间多视角效果图方案</div>
+  </div>
+</section>
+
+<!-- ═══ 实际落地 ═══ -->
+<section>
+  <div class="s-label">Phase 3</div>
+  <h2>落成实景</h2>
+  <p class="s-desc">设计方案的最终呈现，空间落地实景拍摄记录。</p>
+  <div class="pgrid">
+    <img src="../../images/山东茅台文化体验馆/现场图/微信图片_2026-03-16_124252_799.jpg" alt="现场实景 1" onclick="openLB(this.src)">
+    <img src="../../images/山东茅台文化体验馆/现场图/微信图片_2026-03-16_124302_881.jpg" alt="现场实景 2" onclick="openLB(this.src)">
+    <img src="../../images/山东茅台文化体验馆/现场图/微信图片_2026-03-16_124305_143.jpg" alt="现场实景 3" onclick="openLB(this.src)">
+    <img src="../../images/山东茅台文化体验馆/现场图/微信图片_2026-03-16_124322_124.jpg" alt="现场实景 4" onclick="openLB(this.src)">
+    <div class="cap">▲ 完工现场实景拍摄</div>
+  </div>
+</section>
+
+<!-- ═══ 交付物 ═══ -->
+<section>
+  <div class="s-label">Deliverables</div>
+  <h2>项目交付物</h2>
+  <div class="dg">
+    <div class="di"><span class="icon">📐</span><h4>测量记录</h4><p>原始场地测量数据与影像</p></div>
+    <div class="di"><span class="icon">🖼️</span><h4>效果图渲染</h4><p>多视角方案效果图</p></div>
+    <div class="di"><span class="icon">📋</span><h4>方案文档</h4><p>文化叙事 + 空间布局方案</p></div>
+    <div class="di"><span class="icon">🏗️</span><h4>落地实施</h4><p>空间改造实施与还原</p></div>
+    <div class="di"><span class="icon">📸</span><h4>现场记录</h4><p>实施全程照片 / 实景记录</p></div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section>
+  <div class="cta">
+    <h2>想了解更多项目细节？</h2>
+    <div class="cta-btns">
+      <a href="mailto:494339602@qq.com" class="btn">📧 联系我</a>
+      <a href="../../index.html?v=20260820" class="btn btn-o">← 返回作品集</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="brand">MAX DESIGN</div>
+  <p>© 2026 Max·Design Studio</p>
+  <div class="div"></div>
+  <p>山东·茅台文化体验馆 — 全流程操盘项目详情</p>
+</footer>
+
+<div class="lb" id="lb" onclick="this.classList.remove('on')"><img id="lb-img" src=""></div>
+<script>
+function openLB(s){document.getElementById('lb-img').src=s;document.getElementById('lb').classList.add('on')}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('lb').classList.remove('on')})
+</script>
+</body>
+</html>
